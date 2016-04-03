@@ -1,0 +1,35 @@
+title: The Disappearance of Suzumiya Haruhi
+author: astrobunny
+imported: true
+create_time: 1178899401
+category: Books
+tags: []
+---
+<wpg2idlightbox>173</wpg2idlightbox> I have recently finished the 4th volume of the Suzumiya Haruhi light novel series, The Disappearance of Suzumiya Haruhi. I must say, it's the best book so far that I've read in the series. However, like any other serial story, this book is worthless if you haven't read the 3 other books before it.  
+  
+Verdict? Recommended, if you have read the first 3 books.  
+  
+[SPOILER WARNING]  
+<!--more-->  
+  
+This book's title basically says it all. Haruhi disappeared. Well, not exactly vanished from existence, but rather, the world was changed. (for those of you who ignored the spoiler warning, I hereby warn you again DO NOT READ FURTHER if you want to feel the excitement that I am about to describe.)  
+  
+Apparently, the author seemed to already have something like this in mind when he started writing the story. I suspect he also watched the movie Back to the Future before. In the beginning, I enjoyed the way the contrast was amplified by first describing the day when Kyon was in the normal world, and then describing the day when the world suddenly changed.  
+  
+Kyon, who, after a conversation with Taniguchi started to feel more and more confused since the story and his observations just didn't match. It almost seemed as if he skipped several days of his life. That wasn't true however, but a greater truth lay beneath all the differences in the world and the world he remembered it to be. When Kyon looked all over the school for signs of things he still remembered, I could sense that really everything changed. Everyone was different, yet the same. Mikuru became some foreign student, Itsuki was "gone" along with his class, and Haruhi never studied in Kita High. I can imagine how disoriented Kyon would have become when everything he was familiar with just did not act right. All their personalities were the same though, save one. Nagato suddenly had expressions! OMG!  
+  
+When I saw the picture of Nagato hand a piece of paper to Kyon while saying "Yokattara" I was OMG! SHE HAD EXPRESSIONS! That one picture could cause the entire Yuki-worshipping lolicons to fap non-stop for hours to her newfound expressions. I was, indeed surprised and I thought that if a second season of Haruhi was to be animated, THEY MUST INCLUDE THIS! I really really really wanna see Nagato smiling... It would be soooooooooo cute! XD  
+  
+After that, Kyon's epic adventure through time also caught my imaginations... I spend an entire Saturday reading and re-reading it, because I could not believe what was going on. Kyon went back to exactly the same time when he went to assist Haruhi with her Tanabata drawings and saw his past self. I am amazed at how he kept his composure. I also wonder what its like to travel through time o.o. The (big) Mikuru described in this story is also a MUST RENDER if there was to be a second Haruhi anime series. Or else I would run amuk and become the next Miyazaki.  
+  
+During the course of reading this book the rusty gears in my head were set back in action as I thought again of the kind of temporal distortions constant travelling through time would cause. If you went back to the past once to do something, you would have changed all of the future of that past. Wouldn't that mean that you might not go back after all since everything is the way you want it to be? Apparently not. This is probably one of the answers to the various paradoxes of time travel. The universe could probably already be decided, so if you went back through time, your existence will not be dictated by the time you came from, but rather, the time where you are. In other words, in the eyes of the time you went back to, you just appeared, so your existence will overlap with your past self until your disappearance a.k.a. the time where you departed from.  
+  
+An interesting thing is, if you went back once, you would have caused strange things to happen, so you would need to go back at least a second time to fix the problem. I guess that's what Kyon was thinking after he got back to his original time. However, one thing that puzzles me is, if Kyon saw his future self go back to save him, that means he is probably destined to go back anyway, which means its not his decision to go back, or else the world would have changed permanently. This also points out the fact that the story is probably set within "Decided" time, which means that time is done with the events that occured in the story and nothing will change. All we are seeing are merely renditions of what has happened. That leads us to another question, assuming time works that way, then are we in decided time, or undecided time? Humans cannot come from undecided time because it does not yet exist. If we are living on the edge of undecided time, that is the time when everything is still being decided, that means we can change the future.  
+  
+Then, what if we travelled to the past then? Well, two things might happen. One would be we could travel to the past but nothing we do will affect anything. We would just be mere observers. Or, we might change the past, and when we go to the future, everything would have changed. This leaves no room for the possibility of people coming for the future, EXCEPT when the conditions are so perfect that there is absolutely no shadow of a doubt that that person exists. Also, there would have to be the condition that what the time traveller would cause to happen in the past would have happened anyway. Which means there are two points in time that must be true no matter what, which is something close to impossible. In this case, I think that before Kyon was sent back, Haruhi would have drawn that sign anyway. However, if Kyon helped her, she would also draw the sign, but she would have seen Kyon. Thus, the 2 conditions were met. Haruhi thought she had seen Kyon before, as was when they first talked, but in fact she didnt. That fact changed when Kyon really went back through time, but that wouldn't have changed the fact that she would draw the signs and would have thought that Kyon's face was familiar.  
+  
+So, the possibility of travellers from the future is very slim, but possible. Theoretically...  
+  
+Maybe I should write this up in a scientific journal and win a nobel prize haha. Anyway, this book is amazing, and it really got me thinking again, and whats more, all of the characters are familiar since I read the three other books! And yes, for those of you who haven't read the book but made it this far, I'm telling you, like any other serial story, this book is worthless if you haven't read the 3 other books before it.  
+  
+Verdict? Recommended, if you have read the first 3 books.

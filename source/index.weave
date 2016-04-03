@@ -1,0 +1,233 @@
+include "util.rb"
+
+require "yaml"
+require "uri"
+
+FileUtils.mkdir_p "cache"
+post_modified_dates_cache_file = "cache/post_modified_dates.json"
+
+pages = [
+	{name: "Home", path: "/"}
+]
+
+categories = {}
+tags = {}
+years = {}
+months = {}
+days = {}
+posts = {}
+
+tag_counts = []
+
+prev_post_modified_dates = {}
+post_modified_dates = {}
+if File.exist? post_modified_dates_cache_file
+	prev_post_modified_dates = JSON.parse(File.read(post_modified_dates_cache_file));
+end
+
+# Top level pages
+Dir["pages/*.md"].each do |page_name|
+	raw = page_name.sub(/^pages\//, "").sub(/.md$/, "")
+
+	yml = YAML.load_file page_name
+
+	pages << {name: yml["title"], path: "/#{raw}"}
+end
+
+Dir["posts/*.md"].sort.reverse.each do |post_file|
+
+	yml = YAML.load_file post_file
+
+	post_modified_dates[post_file] = File.mtime(post_file).to_i
+
+	if categories[ yml["category"] ] == nil
+		categories[ yml["category"] ] = []
+	end
+
+	categories[ yml["category"] ] << post_file
+
+	yml["tags"].each do |tag|
+		if tags[ tag ] == nil
+			tags[ tag ] = []
+		end
+
+		tags[ tag ] << post_file
+	end
+
+	post_time = Time.at(yml["create_time"].to_i)
+
+	if years[ post_time.year ] == nil
+		years[ post_time.year ] = []
+	end
+	years[ post_time.year ] << post_file
+
+	if months[ post_time.strftime("%Y/%m") ] == nil
+		months[ post_time.strftime("%Y/%m") ] = []
+	end
+	months[ post_time.strftime("%Y/%m") ] << post_file
+
+	if days[ post_time.strftime("%Y/%m/%d") ] == nil
+		days[ post_time.strftime("%Y/%m/%d") ] = []
+	end
+	days[ post_time.strftime("%Y/%m/%d") ] << post_file
+
+	post_name = URI.unescape(post_file.sub(/^posts\//, "").sub(/.md$/, "").sub("-","/").sub("-","/").sub("-","/"))
+	posts[post_name] = post_file
+
+
+end
+
+
+tags.each do |tag, post_array|
+	tag_counts << {tag: tag, count: post_array.length}
+end
+tag_counts.sort_by! { |x| -x[:count] }
+
+#p (0...50).map{|x| tag_counts[x]}.to_a
+
+Dir["pages/**/*.md"].each do |page_name|
+
+	raw = page_name.sub(/^pages\//, "").sub(/.md$/, "")
+
+	yml = YAML.load_file page_name
+
+	standard_page yml["title"], raw, pages: pages, categories: categories, months: months, days: days, tags: tag_counts do
+
+		page_content(yml["title"], render(page_name), yml["pic"], yml["author"], []) do
+
+			if yml["gallery"]
+				images = Dir["images/wp-gallery/#{yml["gallery"]}/*.jpg"].map {|filename| "/#{filename}"}
+				thumbnails = images.map {|filename| filename.gsub("/hinagiku/", "/hinagiku/thumbs/thumbs_")}
+				gallery images, thumbnails
+			end
+
+			# List child pages automatically
+			if Dir.exist? "pages/#{raw}"
+				h4 "Child pages:"
+				ul do
+					Dir["pages/#{raw}/*.md"].each do |child_page|
+							child_raw = child_page.sub(/^pages\//, "").sub(/.md$/, "")
+							child_yml = YAML.load_file child_page
+							li { a child_yml["title"], href:"#{child_raw}" }
+					end
+				end
+			end
+
+		end
+	end
+end
+
+post_is_expired_proc = Proc.new do |post_file|
+
+	#if post_file.include? "kotomi-post"
+	#	puts "ON : #{post_file}"
+	#	puts "NOW : #{post_modified_dates[post_file].to_i}"
+	#	puts "LAST : #{prev_post_modified_dates[post_file].to_i}"
+	#	puts "RES : #{post_modified_dates[post_file].to_i == prev_post_modified_dates[post_file].to_i}"
+	#end
+
+	#puts "MODIFICATION DETECTED ON : #{post_file}"
+	#puts "NOW : #{post_modified_dates[post_file].to_i}"
+	#puts "LAST : #{prev_post_modified_dates[post_file].to_i}"
+
+	post_modified_dates[post_file] != prev_post_modified_dates[post_file]
+	
+end
+
+posts.each do |post_name,post_file|
+
+	yml = YAML.load_file post_file
+	post_time = Time.at(yml["create_time"].to_i)
+
+	cache_has_expired = post_is_expired_proc.call(post_file)
+
+	standard_page yml["title"], post_name, pages: pages, calendar_time: post_time, categories: categories, months: months, days: days, tags: tag_counts, cache_expired: cache_has_expired do
+		content = render(post_file).gsub(/(&lt;!--more--&gt;)|(<!--more-->)/, "")
+		post_content(yml["title"], post_name, content, yml["category"], nil, yml["author"], yml["tags"], yml["create_time"].to_i)
+	end
+
+end
+
+categories.each do |cat_name,posts|
+	post_index_page(posts, 
+		cat_name, 
+		"categories/#{slug(cat_name)}", 
+		"categories/#{slug(cat_name)}", 
+		pages: pages, 
+		categories: categories, 
+		months: months, 
+		days: days, 
+		tags: tag_counts, 
+		post_is_expired_proc: post_is_expired_proc)
+end
+
+tags.each do |tag_name,posts|
+	post_index_page(posts, 
+		tag_name, 
+		"tags/#{slug(tag_name)}", 
+		"tags/#{slug(tag_name)}", 
+		pages: pages, 
+		categories: categories, 
+		months: months, 
+		days: days, 
+		tags: tag_counts, 
+		post_is_expired_proc: post_is_expired_proc)
+end
+
+years.each do |year,posts|
+	post_index_page(posts, 
+		"Posts from #{year}", 
+		"#{year}", 
+		"#{year}", 
+		pages: pages, 
+		categories: categories, 
+		months: months, 
+		days: days, 
+		tags: tag_counts, 
+		post_is_expired_proc: post_is_expired_proc)
+end
+
+months.each do |month,posts|
+	time = Time.parse(month)
+	post_index_page(posts, 
+		"Posts from #{time.strftime "%b %Y"}", 
+		"#{month}", 
+		"#{month}", 
+		pages: pages, 
+		calendar_time: time, 
+		categories: categories, 
+		months: months, 
+		days: days, 
+		tags: tag_counts, 
+		post_is_expired_proc: post_is_expired_proc)
+end
+
+days.each do |day,posts|
+	time = Time.parse(day)
+	post_index_page(posts, 
+		"Posts from #{time.strftime "%d %b %Y"}", 
+		"#{day}", 
+		"#{day}", 
+		pages: pages, 
+		calendar_time: time, 
+		categories: categories, 
+		months: months, 
+		days: days, 
+		tags: tag_counts, 
+		post_is_expired_proc: post_is_expired_proc)
+end
+
+
+post_index_page(posts.values, 
+	"Home", 
+	"", 
+	"posts", 
+	pages: pages, 
+	categories: categories, 
+	months: months, 
+	days: days, 
+	tags: tag_counts, 
+	post_is_expired_proc: post_is_expired_proc)
+
+File.write(post_modified_dates_cache_file, post_modified_dates.to_json)
+

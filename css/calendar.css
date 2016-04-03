@@ -1,0 +1,36 @@
+.calendar {
+	text-align: center;
+}
+
+.calendar .month {
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+}
+
+.calendar .week-header {
+	font-weight: bold;
+	display: table-row;
+}
+
+.calendar .week {
+	display: table-row;
+}
+
+.calendar .day {
+    display: table-cell;
+}
+
+.calendar .month-link {
+	display: table-row;
+}
+
+.calendar .prev-month {
+	display: table-cell;
+	text-align: left;
+}
+
+.calendar .next-month {
+	display: table-cell;
+	text-align: right;
+}
