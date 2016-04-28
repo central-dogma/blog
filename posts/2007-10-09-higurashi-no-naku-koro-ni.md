@@ -5,7 +5,7 @@ create_time: 1191936415
 category: Anime
 tags: []
 ---
- [![Higurashi](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=1011&g2_serialNumber=2)](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=1009 "Higurashi")  
+ [![](wp-images/old/albums/higurashi.jpg)](/images/wp-images/old/albums/higurashi.jpg)  
   
 This&nbsp;season,&nbsp;I have seen one too many anime series which started out really good but ended up really lame. One of the hugest disappointments of this season was Zero no Tsukaima Futatsuki no Kishi. Apparently the sequel follows in its predecessor's footsteps in creating one huge jumbled mess of the few ending episodes. Very disappointing indeed.  
   

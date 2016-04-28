@@ -15,7 +15,7 @@ THEY ARE HERE!!!!
 
   
 |   
-<wpg2idlightbox>370</wpg2idlightbox>  
+ ![](wp-images/old/albums/random/cdbox.jpg)  
  |
   
 |   
@@ -27,7 +27,7 @@ As I opened the door hoping for heaven to come down, the wonderful postman broug
   
 Good things come to those who wait and omg I waited for many many weeks for this to get here. I ordered in April. And it was just wonderful. I jumped in and immediately tore the package up and saw the very things I ordered lying inside  
   
-<wpg2idlightbox>373</wpg2idlightbox>  
+ ![](wp-images/old/albums/random/cds.jpg)  
 1 Motteke! Serafuku CD  
 1 Hayate no Gotoku!  
 1 Proof no vain  

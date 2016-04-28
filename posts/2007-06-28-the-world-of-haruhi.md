@@ -5,7 +5,7 @@ create_time: 1183041115
 category: Anime
 tags: []
 ---
-<wpg2idlightbox>701</wpg2idlightbox>  
+ ![](wp-images/old/albums/random/012_haruhi_1600.jpg)  
   
 A Haruhiist has made a pilgrimage to the Holy Land of Nishinomiya Town. This town is located somewhere in Kansai near Hyougo. It is the place where Haruhi Suzumiya (a.k.a. "God") lives/lived in the animated series, and this devout pilgrim has had the honor and privilege to make it to this most sacred town to worship and admire the consecrated grounds itself! Pray to Haruhi that I may someday have the opportunity too to follow the stars of Orihime and Hikoboshi to pay tribute myself to Her.  
   

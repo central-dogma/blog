@@ -5,7 +5,7 @@ create_time: 1182436850
 category: Uncategorized
 tags: []
 ---
- ![Yuuna!!](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=632&g2_serialNumber=1 "Yuuna!!")  
+ [![](wp-images/old/albums/random/yuuna12cf.jpg)](/images/wp-images/old/albums/random/yuuna12cf.jpg)  
   
 Today I've come across some really interesting things while translating Negima!? and I realized that, hell, I don't think we can live without this eh. Well what's it? Well you guessed right. It's how Japanese people pronounce their dates. Ever wondered how you wanna impress a Japanese girl by telling her your birthday in Japanese? Or even your horoscope? Well, this post is all about that.  
   
@@ -13,11 +13,11 @@ Today I've come across some really interesting things while translating Negima!?
   
 Alright. First of all, we need pictures to keep you guys awake. Today's host will be Akashi Yuuna! Seat No.2 from Class 2-A in Akamatsu-sensei's series Mahou Sensei Negima!  
   
- ![Akashi Yuuna](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=638&g2_serialNumber=1 "Akashi Yuuna")  
+ [![](wp-images/old/albums/random/yuuna.jpg)](/images/wp-images/old/albums/random/yuuna.jpg)  
   
 In Japanese, years are pronounced the same way they are pronounced as values. Thus if I were to say "year 2000" I'd say 二千年 (nisennen). Which is pretty easy. So if you know how to count to the thousands, this should be a piece of cake.  
   
- ![Yuuna blush](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=628&g2_serialNumber=1 "Yuuna blush")  
+ [![](wp-images/old/albums/random/top002.jpg)](/images/wp-images/old/albums/random/top002.jpg)  
   
 Modern Japanese names for months literally translate to "first month", "second month", etc... And they are written the same way as in Modern Chinese too. So for those of you who are Chinese, you already know the kanji. Just practice the pronunciations.  
 
@@ -49,7 +49,7 @@ Modern Japanese names for months literally translate to "first month", "second m
   
 These months also have traditional names, which are still in use today in poetry. Most people use the modern versions in daily speech though. I will talk about those traditional names a bit later.  
   
- ![Yuuna and friends!](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=630&g2_serialNumber=1 "Yuuna and friends!")  
+ [![](wp-images/old/albums/random/vlcsnap-3567198.jpg)](/images/wp-images/old/albums/random/vlcsnap-3567198.jpg)  
   
 Okay, here comes the tricky part. Now that we know how to say years and months in Japanese, we need to know how to say which day of the month it is. The Japanese, oddly, don't have a very systematic way of pronouncing days of the month, but a general guideline can be followed. If you want to pronounce any day above 10, it can be pronounced with the number followed by a -nichi suffix. In other words, 11th July is rokugatsu juuichinichi, 12th is juuninichi, 13th is juusannichi. This however, does not apply to the ones which end with a four. Thus, 14th is juuyokka. 24th is nijuuyokka. As for 1 to 10 and 20, you gotta memorize them. Unfortunately.  
 
@@ -119,7 +119,7 @@ Okay, here comes the tricky part. Now that we know how to say years and months i
   
 These are all the days that you have to remember. Easy right? thought so. Those of you who are Chinese will notice another similarity. Its kanji is written the same in Chinese! (God it's a good time to be Chinese) . Just kidding ^\_^; Now, time to put it all together.  
   
- ![Yuuna profile](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=626&g2_serialNumber=1 "Yuuna profile")  
+ [![](wp-images/old/albums/random/seat03.jpg)](/images/wp-images/old/albums/random/seat03.jpg)  
   
 Alright. So now that we know how to say the month, year and day, now lets practice saying dates in Japanese!  
   
@@ -141,7 +141,7 @@ Or, would you like to do something on the 1st January?
   
 Actually, New year's day has a special name. It's not usually called ichigatsu tsuitachi, but 元日 (ganjitsu). Thus, actually what I just said above would sound kinda strange to a native Japanese, but whatever. This is for educational purposes only.  
   
- ![yuuna sketch](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=634&g2_serialNumber=1 "yuuna sketch")  
+ [![](wp-images/old/albums/random/yuuna36qg.jpg)](/images/wp-images/old/albums/random/yuuna36qg.jpg)  
   
 Alright. I promised to tell you guys about the traditional names of the months. Basically, back in the good old days when Japanese people were still fishermen and did not make robots and cool animation series that caused people to become hikkikomoris, they named their months by describing what they usually observed during that particular month. For example, during February, the spring comes and the weather becomes hot, so everyone changes from their summer to winter clothes, and thus they call it　衣更着 (kinusaragi) or changing clothes. Here are the rest of the names:  
 
@@ -179,6 +179,6 @@ April 29th is 昭和の日 (shouwa no hi). This is a controversial holiday that 
   
 May 3rd is 憲法記念日(kenpou kinen bi). No it's not a jutsu. It's constitution memorial day for Japan to commemorate the creation of Japan's current constitution, which was written shortly after WWII in 1947. May 4th is 緑の日 (midori no hi) or, Midori Day Greenery Day. I bet you saw that one coming. No it does not have anything to do with Midori no Hibi. And finally, May 5th is Children's Day. Now we can see why the Japanese people love Golden Week so much.  
   
- ![Yuuna basketball](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=636&g2_serialNumber=1 "Yuuna basketball")  
+ [![](wp-images/old/albums/random/yuuna102vu.jpg)](/images/wp-images/old/albums/random/yuuna102vu.jpg)  
   
 Oh and Yuuna's birthday is on the 1st June 1988. How do you say that in Japanese?

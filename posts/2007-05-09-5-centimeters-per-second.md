@@ -21,7 +21,7 @@ Oukashou. That was its name. So I gingerly opened it up, hoping it was not anoth
 
   
 
-<wpg2idlightbox>70</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/akari.png)
 
   
 
@@ -37,7 +37,7 @@ It is a story of a boy and a girl, who have been together since elementary schoo
 
   
 
-<wpg2idlightbox>73</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/seats.png)
 
   
 
@@ -45,7 +45,7 @@ The story starts with the girl's letters to the boy. The casual, yet thoughtful 
 
   
 
-<wpg2idlightbox>75</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/evening.png)
 
   
 
@@ -53,7 +53,7 @@ Haha. Don't worry. I have not spoiled anything for you. This is something you ha
 
   
 
-<wpg2idlightbox>77</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/scorpion.png)
 
   
 
@@ -61,7 +61,7 @@ It turns out that what I watched was the first one-third of a movie intended to 
 
   
 
-<wpg2idlightbox>79</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/lunime.png)
 
   
 
@@ -69,7 +69,7 @@ The clip was a half-hour episode filled with flashbacks and thoughts of the two 
 
   
 
-<wpg2idlightbox>87</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/densha.png)
 
   
 
@@ -77,7 +77,7 @@ One main thing that caught my attention in this movie was the animators' attenti
 
   
 
-<wpg2idlightbox>83</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/yoru.png)
 
   
 
@@ -85,7 +85,7 @@ In the night shots, every window on the massive buildings in the background was 
 
   
 
-<wpg2idlightbox>85</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/lights.png)
 
   
 
@@ -93,7 +93,7 @@ To tell the truth, the sky scenes and the scenes where the lights gradually turn
 
   
 
-<wpg2idlightbox>89</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/signs.png)
 
   
 
@@ -101,7 +101,7 @@ The other scenes of the train, train station and city were also very well drawn 
 
   
 
-<wpg2idlightbox>91</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/eki.png)
 
   
 
@@ -109,7 +109,7 @@ The building and train interiors were also exquisitely rendered, with attention 
 
   
 
-<wpg2idlightbox>81</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/chizu.png)
 
   
 
@@ -117,7 +117,7 @@ The story continues with the boy making an appointment with the girl, and makes 
 
   
 
-<wpg2idlightbox>93</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/tooibashoe.png)
 
   
 
@@ -125,7 +125,7 @@ Once again, the boy's thoughts continued to sound more and more painful as the s
 
   
 
-<wpg2idlightbox>95</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/kieta.png)
 
   
 
@@ -133,7 +133,7 @@ Delay after delay was what made the journey seem long. No part was skipped, and 
 
   
 
-<wpg2idlightbox>97</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/denwa.png)
 
   
 
@@ -141,7 +141,7 @@ This is a show I will definitely recommend to everyone. To those who think that 
 
   
 
-<wpg2idlightbox>99</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/futari.png)
 
   
 
@@ -149,7 +149,7 @@ Of course, I'll leave the rest to your imagination, or your turn to watch it. Ov
 
   
 
-<wpg2idlightbox>101</wpg2idlightbox>
+![](wp-images/old/albums/oukashou/ending.png)
 
   
 

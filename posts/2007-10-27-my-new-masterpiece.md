@@ -9,7 +9,7 @@ Ever since I discovered the joys of drawing my own lolis and milfs, I decided to
   
 <!--more-->  
   
- ![PICCASSO CANNOT BEAT THIS IMAGE.](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=1084&g2_serialNumber=2)  
+ [![](wp-images/old/albums/dango.jpg)](/images/wp-images/old/albums/dango.jpg)  
   
 I think its a masterpiece.
 

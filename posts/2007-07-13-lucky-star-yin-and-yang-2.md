@@ -5,7 +5,7 @@ create_time: 1184338405
 category: Manga
 tags: []
 ---
- ![Lucky Star 6-2](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=852)  
+ [![](wp-images/old/albums/comix/LuckyStar6-2.jpg)](/images/wp-images/old/albums/comix/LuckyStar6-2.jpg)  
   
 Oh my God I just realized it's Friday the 13th today. WHOA. I was actually lucky nothing bad happened. Why in the world is Friday the 13th considered unlucky anyway? I heard that it had something to do with Black Friday and the number 13. Speaking of which, I came across this little poem today.  
   

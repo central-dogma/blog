@@ -7,7 +7,7 @@ tags: []
 ---
 Cute dangoes are out to get us! More after the jump!  
   
-<wpg2idlightbox>1027</wpg2idlightbox>  
+ ![](wp-images/old/albums/800px-Hanami_Dango.jpg)  
   
 It has been a while since I have seen another one of the anime world's treasures. The incredibly highly anticipated CLANNAD had been released just last week, and naturally, our gods of animation KyoAni did not disappoint. The introduction was a marvellously paced OP that quickly brought the anime into life, not to mention all the girls shown in the OP managed to hit all my moe buttons.Best of all, the ED of the moe generator rocks my socks so hard I really had to make this flash as a tribute to it! XD  
   

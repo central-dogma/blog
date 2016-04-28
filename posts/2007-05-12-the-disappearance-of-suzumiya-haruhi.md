@@ -5,7 +5,7 @@ create_time: 1178899401
 category: Books
 tags: []
 ---
-<wpg2idlightbox>173</wpg2idlightbox> I have recently finished the 4th volume of the Suzumiya Haruhi light novel series, The Disappearance of Suzumiya Haruhi. I must say, it's the best book so far that I've read in the series. However, like any other serial story, this book is worthless if you haven't read the 3 other books before it.  
+ ![](wp-images/old/albums/random/Sh_v4_illust_01.jpg) I have recently finished the 4th volume of the Suzumiya Haruhi light novel series, The Disappearance of Suzumiya Haruhi. I must say, it's the best book so far that I've read in the series. However, like any other serial story, this book is worthless if you haven't read the 3 other books before it.  
   
 Verdict? Recommended, if you have read the first 3 books.  
   

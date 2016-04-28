@@ -7,7 +7,7 @@ tags: []
 ---
   
 
-![OShizukaNi!](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=1071&g2_serialNumber=2)
+[![](wp-images/old/albums/oshizuka.jpg)](/images/wp-images/old/albums/oshizuka.jpg)
 
   
 I'm sure all of us are working hard for the AFM. However, me and MistaYoH were talking about doing something even greater than just a dango song. So lets all get together and sing OUR own (non-native Japanese) version of the&nbsp;NicoNicoMedley! Imagine a niconico Medley with like... trap voices for the girls, or girls rapping out the guys' parts. This is gonna be so LoL. Read on and find out more!  

@@ -8,7 +8,7 @@ tags: []
   
 |  
    
-<wpg2idlightbox>258</wpg2idlightbox><wpg2idlightbox>260</wpg2idlightbox>  
+ ![](wp-images/old/albums/albumart/hayatenogotoku.jpg) ![](wp-images/old/albums/albumart/proof.jpg)  
  |
   
 

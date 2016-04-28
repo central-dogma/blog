@@ -9,7 +9,7 @@ tags: []
 
   
 |  
-  ![Nagi](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=622&g2_serialNumber=1) |
+  [![](wp-images/old/albums/hayate/nagi.jpg)](/images/wp-images/old/albums/hayate/nagi.jpg) |
   
 
   
@@ -20,7 +20,7 @@ If there is one thing I find interesting about Hayate no Gotoku, is the number o
 
   
 |  
- <wpg2idlightbox>617</wpg2idlightbox> |
+  ![](wp-images/old/albums/hayate/hayateharuhi.jpg) |
   
 
   

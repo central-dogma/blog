@@ -10,5 +10,5 @@ Today, I shall show you guys another character that I was sketching just now. It
 日本のかたへ...  
   
 今度、俺先にスケッチをしてのアニメも一人のキャラクタを見せてします。このキャラクタはハヤテのごとくの三千院ナギです。可愛いでしょう？まだ描きは美しくないと思うですけど、見えましたの後にコメントを置けくださいね。  
-<wpg2idlightbox>44</wpg2idlightbox>
+ ![](wp-images/old/albums/sketches/hayatesketch.png)
 

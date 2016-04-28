@@ -11,7 +11,7 @@ I could imagine how terrified they had been when they saw the Scrin bugs walk ar
 
   
 |  
- <wpg2idlightbox>512</wpg2idlightbox> |
+  ![](wp-images/old/albums/games/sshot0004.jpg) |
   
 
   
@@ -19,7 +19,7 @@ OMG the gayliens are attacking my base. Shoo fly!
 
   
 |  
- <wpg2idlightbox>515</wpg2idlightbox> |
+  ![](wp-images/old/albums/games/sshot0005.jpg) |
   
 
   
@@ -27,7 +27,7 @@ Don't ask me what those are. I never bothered. They look like flying waterskis w
 
   
 |  
- <wpg2idlightbox>518</wpg2idlightbox> |
+  ![](wp-images/old/albums/games/sshot0007.jpg) |
   
 
   
@@ -35,7 +35,7 @@ Don't ask me what those are. I never bothered. They look like flying waterskis w
 
   
 |  
- <wpg2idlightbox>521</wpg2idlightbox> |
+  ![](wp-images/old/albums/games/sshot0009.jpg) |
   
 
   
@@ -43,7 +43,7 @@ I like big guns a lot. They make killing so much easier
 
   
 |  
- <wpg2idlightbox>524</wpg2idlightbox> |
+  ![](wp-images/old/albums/games/sshot0010.jpg) |
   
 
   

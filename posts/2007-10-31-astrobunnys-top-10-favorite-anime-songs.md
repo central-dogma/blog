@@ -5,7 +5,7 @@ create_time: 1193763770
 tags: []
 category: Music
 ---
- ![Hatsune Miku = win!](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=1096)  
+ [![](wp-images/old/albums/hatsunemiku.jpg)](/images/wp-images/old/albums/hatsunemiku.jpg)  
   
 I have finally gotten off my lazy butt to actually do some real blogging. Before you guys read this, here's a short disclaimer for the post. I wrote this post because I listed out my favorite songs so far before this season but I never got around to doing it. As such, this list doesn't include any of the songs that have come out this Fall. Also, this is a list of MY favorites, so I turned bias on full and put all my fanboyism on full exposure. Why did I write this post? Because I can. Here goes...  
   

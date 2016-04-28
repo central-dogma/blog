@@ -9,14 +9,14 @@ Since I have absolutely nothing to post about today, due to evil assignments and
 
   
 |  
- <wpg2idlightbox>218</wpg2idlightbox> |
+  ![](wp-images/old/albums/random/konagato01.jpg) |
   
 
   
 
   
 |  
- <wpg2idlightbox>221</wpg2idlightbox> |
+  ![](wp-images/old/albums/random/konagato01p.jpg) |
   
 
   

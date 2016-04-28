@@ -1,9 +1,24 @@
 
 require "redcarpet"
 
-def sidebar_widget(title, &block)
+class GlobalSettings
+
+	def api_url
+		ENV["ASTROBUNNY_API_URL"] || "http://localhost:3000"
+	end
+end
+
+def button_link(title, icon_sym, dest)
+	a class: "btn btn-blank btn-block", href: "#{dest}", style: :warning do
+		icon icon_sym
+		text " #{title}"
+	end
+end
+
+def sidebar_widget(title, options={}, &block)
 	h3 "#{title}"
-	div class:"widget-content" do
+	min_height = options[:min_height] || 100
+	div class:"widget-content", style: "min-height: #{min_height}px;" do
 		instance_eval(&block) if block
 	end
 end
@@ -40,7 +55,7 @@ def post_index_page(posts, title, primary_page_path, page_path_prefix=primary_pa
 		end
 		current_page_options[:cache_expired] = cache_has_expired
 
-		standard_page "#{title}", path, current_page_options do
+		blog_page "#{title}", path, current_page_options do
 
 			post_set.each do |post_file|
 				render_post_summary(post_file)
@@ -161,7 +176,7 @@ def render_post(content, post_name, pic, author, tags, more, &block)
 	end
 end
 
-def post_title(title, post_name, category, time_int)
+def post_title(title, post_name, signature, category, time_int)
 	time = Time.at(time_int)
 	div class:"postinfo" do
 
@@ -177,7 +192,25 @@ def post_title(title, post_name, category, time_int)
 				end
 
 				a "#{category}", class:"category", href: "/categories/#{slug(category)}"
-				a "Add Comment", class:"mini-add-comment"
+				a "Write a comment", id:"#{slug(post_name)}_comment_count", class:"mini-add-comment", href:"/#{post_name}#comments"
+
+				on_page_load <<-SCRIPT
+					api_get_comment_count("#{GlobalSettings.new.api_url}", #{signature.inspect}, function(count)
+					{
+						if (count == 1)
+						{
+							$("##{slug(post_name)}_comment_count").text(count + " comment");
+						}
+						else if (count == 0)
+						{
+						}
+						else
+						{
+							$("##{slug(post_name)}_comment_count").text(count + " comments");
+						}
+					})
+
+				SCRIPT
 			end
 		end
 	end
@@ -189,7 +222,7 @@ def page_title(title)
 			div class:"pagetitle" do
 				h2 "#{title}", style: "margin-bottom: 2px"
 
-				a "Add Comment", class:"mini-add-comment"
+				a "Add Comment", class:"mini-add-comment", href:"#comments"
 			end
 		end
 	end
@@ -207,6 +240,10 @@ def render(md_file)
 
 	rendered = markdown.render(content)
 
+	# remove unwanted spacing
+	rendered.gsub!(/<p> *&nbsp; *<\/p>/, "")
+
+	# make images responsive
 	rendered.gsub!(/<img src="(.+?)"/, '<img class="img-responsive" src="/images/\\1"')
 
 	count = 0
@@ -259,7 +296,6 @@ def render(md_file)
 			subcontent.gsub!("<!--more-->", "")
 		end
 
-
 		sig = SecureRandom.hex 
 		description_list[sig] = subcontent
 
@@ -275,7 +311,7 @@ def render(md_file)
 end
 
 
-def gen_comment_section(signature)
+def gen_comment_section(signature, title)
 
 	signature = URI.escape(signature, /\W/)
 	on_page_load <<-SCRIPT
@@ -299,7 +335,15 @@ function add_comment(comment_info)
 	}
 	content += comment_count + ". "
 
-	content += "<cite><a>"
+	if (comment_info["url"] && comment_info["url"].length != 0)
+	{
+		content += '<cite><a href="' + comment_info["url"] + '">'
+	}
+	else
+	{
+		content += '<cite><a>'
+	}
+
 	content += comment_info["name"]
 	content += "</a></cite>"
 
@@ -327,27 +371,51 @@ function clear_comments()
 
 function send_comment(data)
 {
+	data.title = #{title.inspect};
 	$.ajax({
 		method: "POST",
-		url: "http://localhost:3000/comments/#{signature}/as_guest.json",
+		url: "#{GlobalSettings.new.api_url}/comments/#{signature}/as_guest.json",
 		data: data
 	})
 	.done(function(msg) {
-		$("#comment_form").hide();
 		refresh_comments();
+		$("#comment_form")[0].reset();
+
 	})
-	.fail(function() {
-		console.log("Failed to post comment")
+	.fail(function(err) {
+		display_alert("Comment", err.responseJSON.error)
+		console.log(err.responseJSON.error)
+	});
+}
+
+function send_comment_authed(data)
+{
+	var store = new Persist.Store('bunnylabs_user_data');
+	data.title = #{title.inspect};
+	$.ajax({
+		method: "POST",
+		url: "#{GlobalSettings.new.api_url}/comments/#{signature}/as_user.json?api_key=" + store.get('api_key'),
+		data: data
+	})
+	.done(function(msg) {
+		refresh_comments();
+		$("#comment_form")[0].reset();
+
+	})
+	.fail(function(err) {
+		display_alert("Comment", err.responseJSON.error)
+		console.log(err.responseJSON.error)
 	});
 }
 
 function refresh_comments()
 {
 	$("#commentstitle").text("Loading comments...");
+	$("#comment_form").hide();
 	clear_comments()
 	$.ajax({
 		method: "GET",
-		url: "http://localhost:3000/comments/#{signature}.json"
+		url: "#{GlobalSettings.new.api_url}/comments/#{signature}.json"
 	})
 	.done(function(msg) {
 
@@ -357,55 +425,81 @@ function refresh_comments()
 		{
 			add_comment(msg[i]);
 		}
+		$("#comment_form").show();
 	})
-	.fail(function() {
-		console.log("Failed to get comments")
+	.fail(function(error) {
+		console.log("Failed to get comments");
+		$("#commentstitle").text("Weird. Somehow the comments could not be loaded.");
+		$("#comment_form").hide();
 	});
 }
 
 	SCRIPT
 
+	a name: "comments" do end
 	h3 "No comments", id:"commentstitle"
 
 	ol id: "post_comment_list", class: "commentlist" do
 	end
 
-	wform id:"comment_form" do
-		h3 "Write a comment", id:"commentsrespond"
-		small "Logging in allows you to edit/delete your comments"
-		br
-		br
-		textfield "name", placeholder: "Name"
-		textfield "url", placeholder: "Website"
-		textfield "email", placeholder: "E-mail (will not be published)"
-		textfield "comment", "Comment", rows: 5, autocomplete: "off", autocapitalize: "on"
-		submit "Send Comment", style: "info", id: "submit" do
-			script <<-SCRIPT
-				send_comment(data)
-			SCRIPT
-		end
 
+	div class:"unauthenticated_items" do
+		wform id:"comment_form" do
+			h3 "Write a comment", id:"commentsrespond"
+			small "Logging in allows you to edit/delete your comments"
+			br
+			br
+			textfield "name", placeholder: "Name"
+			textfield "url", placeholder: "Website"
+			textfield "email", placeholder: "E-mail (will not be published)"
+			textfield "comment", "Comment", rows: 5, autocomplete: "off", autocapitalize: "on"
+			submit "Send Comment", style: "info" do
+				script <<-SCRIPT
+					send_comment(data)
+				SCRIPT
+			end
+		end
+	end
+
+	div class:"authenticated_items" do
+		wform id:"comment_form_authed" do
+			h3 id:"commentsrespond" do
+				text "Write a comment as "
+				span "__", class: "var_username"
+			end
+			br
+			textfield "comment", "Comment", rows: 5, autocomplete: "off", autocapitalize: "on"
+			submit "Send Comment", style: "info" do
+				script <<-SCRIPT
+					send_comment_authed(data)
+				SCRIPT
+			end
+		end
 	end
 end
 
-def page_content(title, content, pic, author, tags, &block)
+def pipify(text)
+	text.downcase.gsub(/[\/]/, "|")
+end
+
+def page_content(title, page_name, content, pic, author, tags, &block)
 	page_title(title)
 
 	render_post(content, "", pic, author, tags, false, &block)
 
-	gen_comment_section("page:#{slug(title)}")
+	gen_comment_section("page:#{pipify(page_name)}", title)
 end
 
 def post_summary(title, post_name, excerpt, category, pic, author, tags, more, time_int)
-	post_title(title, post_name, category, time_int)
+	post_title(title, post_name, "post:#{pipify(post_name)}", category, time_int)
 	render_post(excerpt, post_name, pic, author, tags, more)
 end
 
 def post_content(title, post_name, excerpt, category, pic, author, tags, time_int)
-	post_title(title, post_name, category, time_int)
+	post_title(title, post_name, "post:#{pipify(post_name)}", category, time_int)
 	render_post(excerpt, post_name, pic, author, tags, false)
 
-	gen_comment_section("post:#{slug(post_name)}")
+	gen_comment_section("post:#{pipify(post_name)}", title)
 end
 
 def standard_page(title, path="", options={}, &block)
@@ -415,6 +509,8 @@ def standard_page(title, path="", options={}, &block)
 		request_css "css/plugins/blueimp/css/blueimp-gallery.min.css"
 		request_js "js/plugins/blueimp/jquery.blueimp-gallery.min.js"
 		request_css "css/astrobunny.css"
+		request_js "js/astrobunny.js"
+		request_js "js/persist-all-min.js"
 
 		background do
 			div id: "blogbg" do
@@ -422,12 +518,21 @@ def standard_page(title, path="", options={}, &block)
 				div id: "blogbgtitle" do
 					image "theme/main-bg.jpg", id: "blogbgimage"
 				end
-
-
 			end
 		end
 
 		top do
+
+			modal "page_modal" do
+				header do 
+					h4 "MSG_PAGE_MODAL_TITLE", id: "page_modal_title"
+				end
+
+				body do
+					p "MSG_PAGE_MODAL_MESSAGE", id: "page_modal_message"
+				end
+			end
+
 			div class: "container" do
 
 				row do
@@ -448,17 +553,113 @@ def standard_page(title, path="", options={}, &block)
 			end
 		end
 
-		row do
+		instance_eval(&block)
+	end
+end
 
+def authed_single_page(page_title, path, &block) 
+
+	single_page(page_title, path) do
+
+		on_page_load <<-SCRIPT
+			check_logged_in("#{GlobalSettings.new.api_url}",
+				function()
+				{
+
+				},
+				function()
+				{
+					location.href = "/user/login";
+				}
+			);
+		SCRIPT
+
+		div class:"unauthenticated_items" do
+			p "You are not logged in. Please log in", style: "font-color: red;"
+		end
+
+		instance_eval(&block)
+	end
+
+end
+
+def single_page(page_title, path, &block)
+
+	standard_page "#{page_title}", "#{path}", cache_expired: true do
+
+		row do
+			col 2, md: 1, sm: 0, xs: 0 do
+			end
+
+			col 8, md: 10, sm: 12, xs: 12 do
+				div do 
+					div id: "blognav" do
+						ul do
+							li menuitem_options do
+								a "Home", href: "/"
+							end
+						end
+					end
+
+					ibox do 
+						title "#{page_title}"
+
+						instance_eval(&block)
+					end
+				end
+			end
+
+			col 2, md: 1, sm: 0, xs: 0 do
+			end
+		end
+
+	end
+end
+
+def blog_page(title, path="", options={}, &block)
+
+	standard_page(title, path, options) do
+
+		row do
 			col 3, xs: 0 do
 				div class:"blogsidebar" do
 
-					sidebar_widget "Navigation" do
-						p "Some stuff"
-					end
+					sidebar_widget "User Panel", min_height: 260 do
 
-					sidebar_widget "Meta" do
-						p "Login"
+						div class: "authenticated_items", id: "userform", style: "display: none" do
+							p id: "userform_welcome" do 
+								text "Welcome back, "
+								span "__", class: "var_username"
+							end
+							button_link "View Profile", :user, "/user/profile"
+							button_link "View Comments", :comments, "/user/comments"
+							block_button :"sign-out", "Log out", style: :warning do
+								script <<-SCRIPT
+									logout("#{GlobalSettings.new.api_url}");
+								SCRIPT
+							end
+						end
+
+						div class: "unauthenticated_items", id: "loginform", style: "display: none" do
+							wform do
+								p "Login to edit your comments"
+								textfield "email", placeholder: "E-mail"
+								passwordfield "password", placeholder: "Password"
+
+								submit :"sign-in", "Login", block: true, style: :info do
+									script <<-SCRIPT
+										login("#{GlobalSettings.new.api_url}", "localhost:4567",  data);
+									SCRIPT
+								end
+								button_link " Register", :"user-plus", "/user/register"
+								button_link " Forgot My Password", :"question", "/user/forgotpass"
+							end
+						end
+
+						on_page_load <<-SCRIPT
+							check_logged_in("#{GlobalSettings.new.api_url}");
+						SCRIPT
+
 					end
 
 					sidebar_widget "Archives" do
@@ -570,11 +771,9 @@ $('#blueimp-gallery').on('slide', function (event, index, slide) {
 						end
 					end
 				end
-
 			end
-
 		end
-
 	end
-
 end
+
+

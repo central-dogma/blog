@@ -9,7 +9,7 @@ This episode can be summarized in one word: Random. Are the guys at Shogakukan a
 
   
 |   
- ![Hinagiku](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=378&g2_serialNumber=1)  
+ [![](wp-images/old/albums/hayate/hinagikusmall.jpg)](/images/wp-images/old/albums/hayate/hinagikusmall.jpg)  
  |
   
 

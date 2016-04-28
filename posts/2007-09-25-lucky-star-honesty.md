@@ -5,6 +5,6 @@ create_time: 1190707230
 category: Uncategorized
 tags: []
 ---
- ![Honesty](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=1003)  
+ [![](wp-images/old/albums/luckystar15.jpg)](/images/wp-images/old/albums/luckystar15.jpg)  
   
 Happiness. Happens a lot.

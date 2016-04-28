@@ -7,5 +7,5 @@ tags: []
 ---
 It's hard to picture so many small Nagatos at a time. But Asahina's clumsiness, is something of a given.  
   
- ![Konagato 4](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=704)
+ [![](wp-images/old/albums/comix/konagato4.jpg)](/images/wp-images/old/albums/comix/konagato4.jpg)
 

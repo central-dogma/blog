@@ -13,10 +13,10 @@ I'm about to check the Pak Toh box on my msn message so, I'll do some translatio
   
 And here are some images for you to ponder over while I'm away in the REAL WORLD.  
   
-<wpg2idlightbox>769</wpg2idlightbox>  
-<wpg2idlightbox>772</wpg2idlightbox>  
-<wpg2idlightbox>775</wpg2idlightbox>  
-<wpg2idlightbox>778</wpg2idlightbox>  
+ ![](wp-images/old/albums/haruhi2-1.jpg)  
+ ![](wp-images/old/albums/haruhi2-2.jpg)  
+ ![](wp-images/old/albums/haruhi2-3.jpg)  
+ ![](wp-images/old/albums/haruhi2-4.jpg)  
   
 キターーーーーーーーーーーーーーーーー\（＝ω＝・）／ーーーーーーーーーーーーーーーーーーー！
 

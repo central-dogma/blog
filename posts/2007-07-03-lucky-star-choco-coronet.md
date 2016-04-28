@@ -5,9 +5,9 @@ create_time: 1183474772
 category: Manga
 tags: []
 ---
-&nbsp; ![Choco](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=743&g2_serialNumber=1 "Choco")  
+&nbsp; [![](wp-images/old/albums/random/choco.jpg)](/images/wp-images/old/albums/random/choco.jpg)  
   
 Okay. Here's the lowdown. This is why I want a Choco Coronet so badly.  
   
- ![Coronet](http://gallery.astrobunny.net/main.php?g2_view=core.DownloadItem&g2_itemId=737)
+ [![](wp-images/old/albums/random/LuckyStar2-1.jpg)](/images/wp-images/old/albums/random/LuckyStar2-1.jpg)
 

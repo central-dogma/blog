@@ -85,38 +85,6 @@ tag_counts.sort_by! { |x| -x[:count] }
 
 #p (0...50).map{|x| tag_counts[x]}.to_a
 
-Dir["pages/**/*.md"].each do |page_name|
-
-	raw = page_name.sub(/^pages\//, "").sub(/.md$/, "")
-
-	yml = YAML.load_file page_name
-
-	standard_page yml["title"], raw, pages: pages, categories: categories, months: months, days: days, tags: tag_counts do
-
-		page_content(yml["title"], render(page_name), yml["pic"], yml["author"], []) do
-
-			if yml["gallery"]
-				images = Dir["images/wp-gallery/#{yml["gallery"]}/*.jpg"].map {|filename| "/#{filename}"}
-				thumbnails = images.map {|filename| filename.gsub("/hinagiku/", "/hinagiku/thumbs/thumbs_")}
-				gallery images, thumbnails
-			end
-
-			# List child pages automatically
-			if Dir.exist? "pages/#{raw}"
-				h4 "Child pages:"
-				ul do
-					Dir["pages/#{raw}/*.md"].each do |child_page|
-							child_raw = child_page.sub(/^pages\//, "").sub(/.md$/, "")
-							child_yml = YAML.load_file child_page
-							li { a child_yml["title"], href:"#{child_raw}" }
-					end
-				end
-			end
-
-		end
-	end
-end
-
 post_is_expired_proc = Proc.new do |post_file|
 
 	#if post_file.include? "kotomi-post"
@@ -131,8 +99,45 @@ post_is_expired_proc = Proc.new do |post_file|
 	#puts "LAST : #{prev_post_modified_dates[post_file].to_i}"
 
 	post_modified_dates[post_file] != prev_post_modified_dates[post_file]
+
+	true
 	
 end
+
+Dir["pages/**/*.md"].each do |page_name|
+
+	raw = page_name.sub(/^pages\//, "").sub(/.md$/, "").downcase
+
+	yml = YAML.load_file page_name
+
+	cache_has_expired = post_is_expired_proc.call(page_name)
+
+	blog_page yml["title"], raw, pages: pages, categories: categories, months: months, days: days, tags: tag_counts, cache_expired: cache_has_expired do
+
+		page_content(yml["title"], raw, render(page_name), yml["pic"], yml["author"], []) do
+
+			if yml["gallery"]
+				images = Dir["images/wp-gallery/#{yml["gallery"]}/*.jpg"].map {|filename| "/#{filename}"}
+				thumbnails = images.map {|filename| filename.gsub("/hinagiku/", "/hinagiku/thumbs/thumbs_")}
+				gallery images, thumbnails
+			end
+
+			# List child pages automatically
+			if Dir.exist? "pages/#{raw}"
+				h4 "Child pages:"
+				ul do
+					Dir["pages/#{raw}/*.md"].each do |child_page|
+						child_raw = child_page.sub(/^pages\//, "").sub(/.md$/, "")
+						child_yml = YAML.load_file child_page
+						li { a child_yml["title"], href:"#{child_raw}" }
+					end
+				end
+			end
+
+		end
+	end
+end
+
 
 posts.each do |post_name,post_file|
 
@@ -141,7 +146,7 @@ posts.each do |post_name,post_file|
 
 	cache_has_expired = post_is_expired_proc.call(post_file)
 
-	standard_page yml["title"], post_name, pages: pages, calendar_time: post_time, categories: categories, months: months, days: days, tags: tag_counts, cache_expired: cache_has_expired do
+	blog_page yml["title"], post_name, pages: pages, calendar_time: post_time, categories: categories, months: months, days: days, tags: tag_counts, cache_expired: cache_has_expired do
 		content = render(post_file).gsub(/(&lt;!--more--&gt;)|(<!--more-->)/, "")
 		post_content(yml["title"], post_name, content, yml["category"], nil, yml["author"], yml["tags"], yml["create_time"].to_i)
 	end
@@ -217,7 +222,6 @@ days.each do |day,posts|
 		post_is_expired_proc: post_is_expired_proc)
 end
 
-
 post_index_page(posts.values, 
 	"Home", 
 	"", 
@@ -228,6 +232,8 @@ post_index_page(posts.values,
 	days: days, 
 	tags: tag_counts, 
 	post_is_expired_proc: post_is_expired_proc)
+
+
 
 File.write(post_modified_dates_cache_file, post_modified_dates.to_json)
 
