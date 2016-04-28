@@ -1,0 +1,3 @@
+admin_page "Administration Control Panel", "" do
+	p "Welcome"
+end

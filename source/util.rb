@@ -9,7 +9,7 @@ class GlobalSettings
 end
 
 def button_link(title, icon_sym, dest)
-	a class: "btn btn-blank btn-block", href: "#{dest}", style: :warning do
+	a class: "btn btn-block", href: "#{dest}" do
 		icon icon_sym
 		text " #{title}"
 	end
@@ -91,20 +91,30 @@ def calendar_widget(time, options={})
 	sidebar_widget "Calendar" do
 		div class: "calendar" do
 
-			a time.strftime("%B %Y"), href: "#{time.strftime("/%Y/%m/")}"
 
 			firstday = Time.new(time.year,time.month,1)
 			lastday = Time.new(time.year,time.month + 1,1) - 24 if time.month < 12
 			lastday = Time.new(time.year + 1,1,1) - 24 if time.month == 12
 			first_day_of_week = firstday.wday % 7
 
+			month_has_posts = false
+
 			day_array = (1..first_day_of_week).map {|x| "&nbsp;"} + 
 				(firstday.day..lastday.day).map do |x|
-					# TODO Add stuff here
+					daysig = "#{Time.new(time.year,time.month,x).strftime("%Y/%m/%d")}"
+					if options[:days][daysig]
+						month_has_posts = true
+					end
 					"#{x}"
 				end
 
 			day_array += (1..(7-day_array.length % 7)).map {|x| "&nbsp;"}
+
+			if month_has_posts
+				a time.strftime("%B %Y"), href: "#{time.strftime("/%Y/%m/")}"
+			else
+				text time.strftime("%B %Y")
+			end
 
 			div class: "month" do
 				div class: "week-header" do
@@ -201,10 +211,7 @@ def post_title(title, post_name, signature, category, time_int)
 						{
 							$("##{slug(post_name)}_comment_count").text(count + " comment");
 						}
-						else if (count == 0)
-						{
-						}
-						else
+						else if (count != 0)
 						{
 							$("##{slug(post_name)}_comment_count").text(count + " comments");
 						}
@@ -557,6 +564,49 @@ def standard_page(title, path="", options={}, &block)
 	end
 end
 
+def admin_page(page_title, path, &block) 
+
+	single_page(page_title, path) do
+
+		on_page_load <<-SCRIPT
+
+			$('.preauthenticated_items').css('display', '');
+			$('.unauthenticated_items').css('display', 'none');
+			$('.authenticated_items').css('display', 'none');
+			$('.admin_items').css('display', 'none');
+			api_get_is_admin("#{GlobalSettings.new.api_url}", 
+				function()
+				{
+					console.log("isadmin")
+					$('.preauthenticated_items').css('display', 'none');
+					$('.unauthenticated_items').css('display', 'none');
+					$('.authenticated_items').css('display', '');
+					$('.admin_items').css('display', '');
+				},
+				function()
+				{
+					$('.preauthenticated_items').css('display', 'none');
+					$('.unauthenticated_items').css('display', '');
+					location.href = "/";
+				});
+
+		SCRIPT
+
+		div class:"preauthenticated_items" do
+			p "Loading..."
+		end
+
+		div class:"unauthenticated_items" do
+			icon :"minus-circle"
+		end
+
+		div class:"admin_items" do
+			instance_eval(&block)
+		end
+	end
+
+end
+
 def authed_single_page(page_title, path, &block) 
 
 	single_page(page_title, path) do
@@ -574,11 +624,17 @@ def authed_single_page(page_title, path, &block)
 			);
 		SCRIPT
 
+		div class:"preauthenticated_items" do
+			p "Checking if you are logged in..."
+		end
+
 		div class:"unauthenticated_items" do
 			p "You are not logged in. Please log in", style: "font-color: red;"
 		end
 
-		instance_eval(&block)
+		div class:"authenticated_items" do
+			instance_eval(&block)
+		end
 	end
 
 end
@@ -633,6 +689,10 @@ def blog_page(title, path="", options={}, &block)
 							end
 							button_link "View Profile", :user, "/user/profile"
 							button_link "View Comments", :comments, "/user/comments"
+							div class: "admin_items" do
+								button_link "Administration Panel", :university, "/admin"
+							end
+							br
 							block_button :"sign-out", "Log out", style: :warning do
 								script <<-SCRIPT
 									logout("#{GlobalSettings.new.api_url}");

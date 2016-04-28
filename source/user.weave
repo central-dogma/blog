@@ -20,13 +20,9 @@ single_page "Login", "login" do
 
 
 			br
-			a class: "btn btn-primary btn-normal", href: "/user/register" do
-				text "Not registered?"
-			end
-			br
-			a class: "btn btn-primary btn-normal", href: "/user/forgotpass" do
-				text "Forgot your password?"
-			end
+
+			button_link "Not registered?", :cancel, "/user/register"
+			button_link "Forgot your password?", :cancel, "/user/forgotpass"
 		end
 	end
 
@@ -124,6 +120,17 @@ single_page "Forgot Password", "forgotpass" do
 		textfield "email", placeholder: "E-mail address"
 		submit "Send me a reset password link" do
 			script <<-SCRIPT
+				api_post_forgot("#{GlobalSettings.new.api_url}", data,
+					function(result)
+					{
+						display_alert("Reset Password", "An e-mail has been sent to you with instructions on how to reset your password");
+					},
+
+					function(error)
+					{
+						display_alert("Reset Password", "An e-mail has been sent to you with instructions on how to reset your password");
+					}
+				);
 			SCRIPT
 		end
 	end
@@ -134,9 +141,49 @@ single_page "Reset Password", "resetpass" do
 
 	wform do
 		p "Please enter a new password that you can remember easily but is hard for others to guess."
-		passwordfield "password", placeholder: "Password"
-		passwordfield "password2", placeholder: "Password (again)"
-		submit "Reset" do
+		textfield "email", placeholder: "E-mail"
+		passwordfield "new_password", placeholder: "Password"
+		passwordfield "new_password2", placeholder: "Password (again)"
+		submit :edit, "Reset" do
+			script <<-SCRIPT
+
+				data.token = getParameterByName("token");
+				api_post_reset("#{GlobalSettings.new.api_url}", data,
+					function(result)
+					{
+						location.href = "/user/login"
+					},
+
+					function(error)
+					{
+						display_alert("Reset Password Failed", error.error);
+					}
+				);
+			SCRIPT
+		end
+	end
+	
+end
+
+single_page "Change Password", "changepass" do
+
+	wform do
+		p "Please enter a new password that you can remember easily but is hard for others to guess."
+		passwordfield "old_password", placeholder: "Old Password"
+		passwordfield "new_password", placeholder: "New Password"
+		passwordfield "new_password2", placeholder: "New Password (again)"
+		submit :edit, "Change" do
+			script <<-SCRIPT
+				api_change_password("#{GlobalSettings.new.api_url}", data,
+				function()
+				{
+					location.href = "/user/profile"
+				},
+				function(error)
+				{
+					display_alert("Could not change password", error.error)
+				})
+			SCRIPT
 		end
 	end
 	
@@ -150,24 +197,29 @@ authed_single_page "User Profile", "profile" do
 			variable "api_key", "get_api_key()"
 		end
 	end
+
+	button_link "Change Password", :edit, "/user/changepass"
 end
 
 
 authed_single_page "User Comments", "comments" do
-	p "These are some of your latest comments"
 
-	table_from_source "#{GlobalSettings.new.api_url}/comments.json", id:"comments_table", member: "result" do
-		query do
-			variable "api_key", "get_api_key()"
+	div class: "authenticated_items" do
+		p "These are some of your latest comments"
+
+		table_from_source "#{GlobalSettings.new.api_url}/comments.json", id:"comments_table", member: "result" do
+			query do
+				variable "api_key", "get_api_key()"
+			end
+			column "page", title: "Page" do 
+				a "###title###", href:"/###page###"
+				transform <<-SCRIPT
+		return decodeURI(input).replace(/\\|/g, "/");
+				SCRIPT
+			end
+			column "ip", title: "IP Address"
+			column "time", title: "Time Posted", icon: :calendar
+			column "comment", title: "Comment"
 		end
-		column "page", title: "Page" do 
-			a "###title###", href:"/###page###"
-			transform <<-SCRIPT
-	return decodeURI(input).replace(/\\|/g, "/");
-			SCRIPT
-		end
-		column "ip", title: "IP Address"
-		column "time", title: "Time Posted", icon: :calendar
-		column "comment", title: "Comment"
 	end
 end

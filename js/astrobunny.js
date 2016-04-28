@@ -137,6 +137,51 @@ function api_post_registration(endpoint, data, success_func, fail_func)
 	);
 }
 
+function api_post_forgot(endpoint, data, success_func, fail_func)
+{
+	api_post(endpoint, "/users/forgot.json", data,
+		function(result)
+		{
+			return success_func();
+		},
+
+		function(error)
+		{
+			return fail_func(error.responseJSON);
+		}
+	);
+}
+
+function api_post_reset(endpoint, data, success_func, fail_func)
+{
+	api_post(endpoint, "/users/resetpassword.json", data,
+		function(result)
+		{
+			return success_func();
+		},
+
+		function(error)
+		{
+			return fail_func(error.responseJSON);
+		}
+	);
+}
+
+function api_change_password(endpoint, data, success_func, fail_func)
+{
+	api_patch(endpoint, "/users/password.json", data,
+		function(result)
+		{
+			return success_func();
+		},
+
+		function(error)
+		{
+			return fail_func(error.responseJSON);
+		}
+	);
+}
+
 function api_post_validation(domain, endpoint, data, success_func, fail_func)
 {
 	api_post(endpoint, "/users/validate.json", data,
@@ -189,15 +234,49 @@ function api_get_comment_count(endpoint, signature, success_func, fail_func)
 	);
 }
 
+function api_get_is_admin(endpoint, success_func, fail_func)
+{
+	api_get(endpoint, "/admin/self.json",
+		function(result)
+		{
+			if (success_func)
+			{
+				return success_func();
+			}
+		},
+
+		function(error)
+		{
+			if (fail_func)
+			{
+				return fail_func();
+			}
+		}
+	);
+}
+
 function check_logged_in(endpoint, success_func, fail_func)
 {
+	$('.preauthenticated_items').css('display', '');
+	$('.unauthenticated_items').css('display', 'none');
+	$('.authenticated_items').css('display', 'none');
+	$('.admin_items').css('display', 'none');
+
 	api_get_username(endpoint,
 		function(username)
 		{
+			$('.preauthenticated_items').css('display', 'none');
 			$('.unauthenticated_items').css('display', 'none');
 			$('.authenticated_items').css('display', '');
 			$('.var_username').text(username);
 			console.log("logged in: " + username)
+
+			api_get_is_admin(endpoint, 
+				function()
+				{
+					console.log("isadmin")
+					$('.admin_items').css('display', '');
+				});
 
 			if (success_func)
 			{
@@ -207,6 +286,7 @@ function check_logged_in(endpoint, success_func, fail_func)
 
 		function(error)
 		{
+			$('.preauthenticated_items').css('display', 'none');
 			$('.authenticated_items').css('display', 'none');
 			$('.unauthenticated_items').css('display', '');
 			$('.var_username').text("## please log in ##");
