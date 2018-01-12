@@ -3,7 +3,7 @@ author: astrobunny
 imported: true
 create_time: 1236727366
 ---
-<a rel="lightbox" href="https://www.astrobunny.net/wp-content/uploads/2009/02/wpid-b1baf362.jpg"><img class="alignnone size-medium wp-image-1204" title="Picture" src="http://www.astrobunny.net/wp-content/uploads/2009/02/wpid-b1baf362-500x375.jpg" alt="" width="500" height="375" /></a>
+<a rel="lightbox" href="/images/wp-uploads/2009/02/wpid-b1baf362.jpg"><img class="alignnone size-medium wp-image-1204" title="Picture" src="/images/wp-uploads/2009/02/wpid-b1baf362-500x375.jpg" alt="" width="500" height="375" /></a>
 
 <strong>いままでのあらすじ
 The summary so far</strong>

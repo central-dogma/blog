@@ -19,6 +19,8 @@ posts = {}
 
 tag_counts = []
 
+search_items = {}
+
 prev_post_modified_dates = {}
 post_modified_dates = {}
 if File.exist? post_modified_dates_cache_file
@@ -129,7 +131,7 @@ Dir["pages/**/*.md"].each do |page_name|
 					Dir["pages/#{raw}/*.md"].each do |child_page|
 						child_raw = child_page.sub(/^pages\//, "").sub(/.md$/, "")
 						child_yml = YAML.load_file child_page
-						li { a child_yml["title"], href:"#{child_raw}" }
+						li { a child_yml["title"], href:"/#{child_raw}" }
 					end
 				end
 			end
@@ -233,6 +235,22 @@ post_index_page(posts.values,
 	tags: tag_counts, 
 	post_is_expired_proc: post_is_expired_proc)
 
+
+blog_page(
+	"Search", 
+	"search",
+	pages: pages, 
+	categories: categories, 
+	months: months, 
+	days: days, 
+	tags: tag_counts, 
+	cache_expired: true) do
+
+	h1 "Search Results"
+
+
+
+end
 
 
 File.write(post_modified_dates_cache_file, post_modified_dates.to_json)

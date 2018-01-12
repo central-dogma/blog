@@ -1,5 +1,7 @@
 
 require "redcarpet"
+require 'redcarpet/render_strip'
+
 
 class GlobalSettings
 
@@ -544,8 +546,8 @@ def standard_page(title, path="", options={}, &block)
 
 				row do
 					col 12 do
-						form id:"searchform" do 
-							input type: "text", id: "searchtext"
+						form id:"searchform", action:"/search" do 
+							input type: "text", name:"searchtext", id: "searchtext"
 							input type: "submit", id: "searchsubmit"
 						end
 					end
@@ -753,7 +755,8 @@ def blog_page(title, path="", options={}, &block)
 								end
 
 								li menuitem_options do
-									a "#{page[:name]}", href: "#{page[:path]}"
+									path = "/#{page[:path]}/".gsub(/[\/]{2,}/, "/")
+									a "#{page[:name]}", href: "#{path}"
 								end
 							end
 						end
