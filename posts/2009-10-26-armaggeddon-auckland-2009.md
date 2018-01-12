@@ -53,7 +53,7 @@ tags:
 - to
 - tsukasa
 - wrestling
-- ^.^
+- "^.^"
 category: Random
 ---
  [![](wp-uploads/2009/10/wpid-DSC_0317-500x332.jpg "Picture")](/images/wp-uploads/2009/10/wpid-DSC_0317.JPG)  

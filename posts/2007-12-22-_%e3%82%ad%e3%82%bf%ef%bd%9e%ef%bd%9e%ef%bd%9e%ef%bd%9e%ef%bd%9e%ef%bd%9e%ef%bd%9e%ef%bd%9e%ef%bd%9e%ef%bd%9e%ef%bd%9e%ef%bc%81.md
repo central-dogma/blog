@@ -1,4 +1,4 @@
-title: (^_^)キタ～～～～～～～～～～～！
+title: "(^_^)キタ～～～～～～～～～～～！"
 author: astrobunny
 imported: true
 create_time: 1198292835

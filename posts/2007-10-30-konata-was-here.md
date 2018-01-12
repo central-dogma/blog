@@ -5,7 +5,7 @@ create_time: 1193710925
 category: Random
 tags: []
 ---
- [![](wp-images/old/albums/melonpan.jpg)](/images/wp-images/old/albums/melonpan.jpg)  
+ [![](wp-images/old/albums/random/melonpan.jpg)](/images/wp-images/old/albums/random/melonpan.jpg)  
   
 Happiness is having melon-pan for lunch. I envy Sakai, getting a whole bunch of melon-pan from shana-chama and allowed to swallow them all for lunch... Ahh~ This world is not fair!  
   
