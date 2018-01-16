@@ -66,7 +66,7 @@ function set_api_key(domain, api_key)
 function login(endpoint, domain, data, success_func)
 {
 	$.ajax({
-		url: endpoint + "/sessions.json",
+		url: endpoint + "/sessions",
 		method: "POST",
 		data: { email: data.email, password: data.password }
 
@@ -99,7 +99,7 @@ function logout(endpoint)
 {
 	var store = new Persist.Store('bunnylabs_user_data');
 	$.ajax({
-		url: endpoint + "/sessions/" + store.get('api_key') + ".json",
+		url: endpoint + "/sessions/" + store.get('api_key'),
 		method: "DELETE"
 	})
 
@@ -109,7 +109,7 @@ function logout(endpoint)
 
 function api_get_username(endpoint, success_func, fail_func)
 {
-	api_get(endpoint, "/self/username.json", 
+	api_get(endpoint, "/self/username", 
 		function(result)
 		{
 			return success_func(result.username);
@@ -124,7 +124,7 @@ function api_get_username(endpoint, success_func, fail_func)
 
 function api_post_registration(endpoint, data, success_func, fail_func)
 {
-	api_post(endpoint, "/users.json", data,
+	api_post(endpoint, "/users", data,
 		function(result)
 		{
 			return success_func();
@@ -139,7 +139,7 @@ function api_post_registration(endpoint, data, success_func, fail_func)
 
 function api_post_forgot(endpoint, data, success_func, fail_func)
 {
-	api_post(endpoint, "/users/forgot.json", data,
+	api_post(endpoint, "/users/forgot", data,
 		function(result)
 		{
 			return success_func();
@@ -154,7 +154,7 @@ function api_post_forgot(endpoint, data, success_func, fail_func)
 
 function api_post_reset(endpoint, data, success_func, fail_func)
 {
-	api_post(endpoint, "/users/resetpassword.json", data,
+	api_post(endpoint, "/users/resetpassword", data,
 		function(result)
 		{
 			return success_func();
@@ -169,7 +169,7 @@ function api_post_reset(endpoint, data, success_func, fail_func)
 
 function api_change_password(endpoint, data, success_func, fail_func)
 {
-	api_patch(endpoint, "/users/password.json", data,
+	api_patch(endpoint, "/users/password", data,
 		function(result)
 		{
 			return success_func();
@@ -184,7 +184,7 @@ function api_change_password(endpoint, data, success_func, fail_func)
 
 function api_post_validation(domain, endpoint, data, success_func, fail_func)
 {
-	api_post(endpoint, "/users/validate.json", data,
+	api_post(endpoint, "/users/validate", data,
 		function(result)
 		{
 			set_api_key(domain, result.api_key);
@@ -200,7 +200,7 @@ function api_post_validation(domain, endpoint, data, success_func, fail_func)
 
 function api_get_comments(endpoint, success_func, fail_func)
 {
-	api_post(endpoint, "/comments.json", data,
+	api_post(endpoint, "/comments", data,
 		function(result)
 		{
 			return success_func(result.result);
@@ -215,7 +215,7 @@ function api_get_comments(endpoint, success_func, fail_func)
 
 function api_get_comment_count(endpoint, signature, success_func, fail_func)
 {
-	api_get(endpoint, "/comments/" + signature + "/count.json",
+	api_get(endpoint, "/comments/" + signature + "/count",
 		function(result)
 		{
 			if (success_func)
@@ -236,7 +236,7 @@ function api_get_comment_count(endpoint, signature, success_func, fail_func)
 
 function api_get_is_admin(endpoint, success_func, fail_func)
 {
-	api_get(endpoint, "/admin/self.json",
+	api_get(endpoint, "/admin/self",
 		function(result)
 		{
 			if (success_func)

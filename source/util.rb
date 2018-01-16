@@ -6,7 +6,7 @@ require 'redcarpet/render_strip'
 class GlobalSettings
 
 	def api_url
-		ENV["ASTROBUNNY_API_URL"] || "http://localhost:3000"
+		ENV["ASTROBUNNY_API_URL"] || "http://localhost:5000"
 	end
 end
 
@@ -383,7 +383,7 @@ function send_comment(data)
 	data.title = #{title.inspect};
 	$.ajax({
 		method: "POST",
-		url: "#{GlobalSettings.new.api_url}/comments/#{signature}/as_guest.json",
+		url: "#{GlobalSettings.new.api_url}/comments/#{signature}/as_guest",
 		data: data
 	})
 	.done(function(msg) {
@@ -403,7 +403,7 @@ function send_comment_authed(data)
 	data.title = #{title.inspect};
 	$.ajax({
 		method: "POST",
-		url: "#{GlobalSettings.new.api_url}/comments/#{signature}/as_user.json?api_key=" + store.get('api_key'),
+		url: "#{GlobalSettings.new.api_url}/comments/#{signature}/as_user?api_key=" + store.get('api_key'),
 		data: data
 	})
 	.done(function(msg) {
@@ -424,7 +424,7 @@ function refresh_comments()
 	clear_comments()
 	$.ajax({
 		method: "GET",
-		url: "#{GlobalSettings.new.api_url}/comments/#{signature}.json"
+		url: "#{GlobalSettings.new.api_url}/comments/#{signature}"
 	})
 	.done(function(msg) {
 

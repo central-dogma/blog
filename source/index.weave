@@ -4,7 +4,7 @@ require "yaml"
 require "uri"
 
 FileUtils.mkdir_p "cache"
-post_modified_dates_cache_file = "cache/post_modified_dates.json"
+post_modified_dates_cache_file = "cache/post_modified_dates"
 
 pages = [
 	{name: "Home", path: "/"}

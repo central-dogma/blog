@@ -67,7 +67,7 @@ single_page "New User Registration", "register" do
 					{
 						console.log(error)
 
-						display_alert("Could not submit data", JSON.stringify(error.error));
+						display_alert("Could not submit data", JSON.stringify(error.message));
 					}
 				);
 
@@ -192,7 +192,7 @@ end
 authed_single_page "User Profile", "profile" do
 	p "User profile"
 
-	table_from_source "#{GlobalSettings.new.api_url}/self/profile.json", id:"profile_table" do
+	table_from_source "#{GlobalSettings.new.api_url}/self/profile", id:"profile_table" do
 		query do
 			variable "api_key", "get_api_key()"
 		end
@@ -207,7 +207,7 @@ authed_single_page "User Comments", "comments" do
 	div class: "authenticated_items" do
 		p "These are some of your latest comments"
 
-		table_from_source "#{GlobalSettings.new.api_url}/comments.json", id:"comments_table", member: "result" do
+		table_from_source "#{GlobalSettings.new.api_url}/comments", id:"comments_table", member: "result" do
 			query do
 				variable "api_key", "get_api_key()"
 			end
