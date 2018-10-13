@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
 
-gem "weaver", path: "/Users/david/programs/weaver"
+if ENV['WEAVER_PATH']
+	gem "weaver", path: "/home/david/programs/weaver"
+else
+	gem "weaver", "~> 0.7"
+end
 gem "redcarpet"

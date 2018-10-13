@@ -2,224 +2,224 @@ include "util.rb"
 
 single_page "Login", "login" do
 
-	div class: "unauthenticated_items" do
-		wform do
-			p "Log in to astrobunny.net to be able to edit your comments and use more functionality!"
-			textfield "email", placeholder: "E-mail address"
-			passwordfield "password", placeholder: "Password"
-			submit :"sign-in", "Login" do
-				script <<-SCRIPT
-					login("#{GlobalSettings.new.api_url}", "localhost:4567", data,
-						function()
-						{
-							location.href = "/";
-						}
-					);
-				SCRIPT
-			end
+  div class: "unauthenticated_items" do
+    wform do
+      p "Log in to astrobunny.net to be able to edit your comments and use more functionality!"
+      textfield "email", placeholder: "E-mail address"
+      passwordfield "password", placeholder: "Password"
+      submit :"sign-in", "Login" do
+        script <<-SCRIPT
+          login("#{GlobalSettings.new.api_url}", "localhost:4567", data,
+            function()
+            {
+              location.href = "/";
+            }
+          );
+        SCRIPT
+      end
 
 
-			br
+      br
 
-			button_link "Not registered?", :cancel, "/user/register"
-			button_link "Forgot your password?", :cancel, "/user/forgotpass"
-		end
-	end
+      button_link "Not registered?", :cancel, "/user/register"
+      button_link "Forgot your password?", :cancel, "/user/forgotpass"
+    end
+  end
 
-	div class: "authenticated_items" do
-		p do 
-			text "You are successfully logged in, redirecting you to the "
-			a "home page", href: "/"
-		end
-	end
+  div class: "authenticated_items" do
+    p do 
+      text "You are successfully logged in, redirecting you to the "
+      a "home page", href: "/"
+    end
+  end
 
-	on_page_load <<-SCRIPT
-		check_logged_in("#{GlobalSettings.new.api_url}",
-			function()
-			{
-				location.href = "/";
-			}
-		);
-	SCRIPT
+  on_page_load <<-SCRIPT
+    check_logged_in("#{GlobalSettings.new.api_url}",
+      function()
+      {
+        location.href = "/";
+      }
+    );
+  SCRIPT
 end
 
 single_page "New User Registration", "register" do
-	
-	wform do
-		p "Welcome to astrobunny.net. Please enter your e-mail and password to register."
-		textfield "email", placeholder: "E-mail address"
-		textfield "username", placeholder: "Username"
-		passwordfield "password", id: "password_field", placeholder: "Password"
-		passwordfield "password2", placeholder: "Password (again)" do
-			validate <<-SCRIPT
-				return object.val() == $("#password_field").val();
-			SCRIPT
-		end
-		submit :"user-plus", "Register" do
-			script <<-SCRIPT
-				api_post_registration("#{GlobalSettings.new.api_url}", data,
-					function()
-					{
-						location.href = "/user/register_complete";
-					},
+  
+  wform do
+    p "Welcome to astrobunny.net. Please enter your e-mail and password to register."
+    textfield "email", placeholder: "E-mail address"
+    textfield "username", placeholder: "Username"
+    passwordfield "password", id: "password_field", placeholder: "Password"
+    passwordfield "password2", placeholder: "Password (again)" do
+      validate <<-SCRIPT
+        return object.val() == $("#password_field").val();
+      SCRIPT
+    end
+    submit :"user-plus", "Register" do
+      script <<-SCRIPT
+        api_post_registration("#{GlobalSettings.new.api_url}", data,
+          function()
+          {
+            location.href = "/user/register_complete";
+          },
 
-					function(error)
-					{
-						console.log(error)
+          function(error)
+          {
+            console.log(error)
 
-						display_alert("Could not submit data", JSON.stringify(error.message));
-					}
-				);
+            display_alert("Could not submit data", JSON.stringify(error.message));
+          }
+        );
 
-			SCRIPT
-		end
-		br
-		button_link "Actually, never mind", :cancel, "/"
-	end
+      SCRIPT
+    end
+    br
+    button_link "Actually, never mind", :cancel, "/"
+  end
 
 end
 
 single_page "Registration Complete", "register_complete" do
-	p "You will be sent an e-mail to complete your registration. Please find it in your e-mail inbox."
+  p "You will be sent an e-mail to complete your registration. Please find it in your e-mail inbox."
 end
 
 single_page "Validate User", "validate" do
 
-	wform do
-		p "Complete your registration by logging in for the first time."
-		textfield "email", placeholder: "E-mail address"
-		passwordfield "password", id: "password_field", placeholder: "Password"
-		submit :"check-square-o", "Complete Registration" do
-			script <<-SCRIPT
+  wform do
+    p "Complete your registration by logging in for the first time."
+    textfield "email", placeholder: "E-mail address"
+    passwordfield "password", id: "password_field", placeholder: "Password"
+    submit :"check-square-o", "Complete Registration" do
+      script <<-SCRIPT
 
-				data.token = getParameterByName("token");
-				console.log(data);
-				
-				api_post_validation("localhost:4567", "#{GlobalSettings.new.api_url}", data,
-					function(result)
-					{
-						location.href = "/";
-					},
+        data.token = getParameterByName("token");
+        console.log(data);
+        
+        api_post_validation("localhost:4567", "#{GlobalSettings.new.api_url}", data,
+          function(result)
+          {
+            location.href = "/";
+          },
 
-					function(error)
-					{
-						console.log(error);
-						display_alert("Failed to verify", JSON.stringify(error.error));
-					}
-				);
+          function(error)
+          {
+            console.log(error);
+            display_alert("Failed to verify", JSON.stringify(error.error));
+          }
+        );
 
-			SCRIPT
-		end
-	end
+      SCRIPT
+    end
+  end
 end
 
 single_page "Forgot Password", "forgotpass" do
-	
-	wform do
-		p "You forgot your password? Oh you naughty child. Enter your e-mail address."
-		textfield "email", placeholder: "E-mail address"
-		submit "Send me a reset password link" do
-			script <<-SCRIPT
-				api_post_forgot("#{GlobalSettings.new.api_url}", data,
-					function(result)
-					{
-						display_alert("Reset Password", "An e-mail has been sent to you with instructions on how to reset your password");
-					},
+  
+  wform do
+    p "You forgot your password? Oh you naughty child. Enter your e-mail address."
+    textfield "email", placeholder: "E-mail address"
+    submit "Send me a reset password link" do
+      script <<-SCRIPT
+        api_post_forgot("#{GlobalSettings.new.api_url}", data,
+          function(result)
+          {
+            display_alert("Reset Password", "An e-mail has been sent to you with instructions on how to reset your password");
+          },
 
-					function(error)
-					{
-						display_alert("Reset Password", "An e-mail has been sent to you with instructions on how to reset your password");
-					}
-				);
-			SCRIPT
-		end
-	end
+          function(error)
+          {
+            display_alert("Reset Password", "An e-mail has been sent to you with instructions on how to reset your password");
+          }
+        );
+      SCRIPT
+    end
+  end
 
 end
 
 single_page "Reset Password", "resetpass" do
 
-	wform do
-		p "Please enter a new password that you can remember easily but is hard for others to guess."
-		textfield "email", placeholder: "E-mail"
-		passwordfield "new_password", placeholder: "Password"
-		passwordfield "new_password2", placeholder: "Password (again)"
-		submit :edit, "Reset" do
-			script <<-SCRIPT
+  wform do
+    p "Please enter a new password that you can remember easily but is hard for others to guess."
+    textfield "email", placeholder: "E-mail"
+    passwordfield "new_password", placeholder: "Password"
+    passwordfield "new_password2", placeholder: "Password (again)"
+    submit :edit, "Reset" do
+      script <<-SCRIPT
 
-				data.token = getParameterByName("token");
-				api_post_reset("#{GlobalSettings.new.api_url}", data,
-					function(result)
-					{
-						location.href = "/user/login"
-					},
+        data.token = getParameterByName("token");
+        api_post_reset("#{GlobalSettings.new.api_url}", data,
+          function(result)
+          {
+            location.href = "/user/login"
+          },
 
-					function(error)
-					{
-						display_alert("Reset Password Failed", error.error);
-					}
-				);
-			SCRIPT
-		end
-	end
-	
+          function(error)
+          {
+            display_alert("Reset Password Failed", error.error);
+          }
+        );
+      SCRIPT
+    end
+  end
+  
 end
 
 single_page "Change Password", "changepass" do
 
-	wform do
-		p "Please enter a new password that you can remember easily but is hard for others to guess."
-		passwordfield "old_password", placeholder: "Old Password"
-		passwordfield "new_password", placeholder: "New Password"
-		passwordfield "new_password2", placeholder: "New Password (again)"
-		submit :edit, "Change" do
-			script <<-SCRIPT
-				api_change_password("#{GlobalSettings.new.api_url}", data,
-				function()
-				{
-					location.href = "/user/profile"
-				},
-				function(error)
-				{
-					display_alert("Could not change password", error.error)
-				})
-			SCRIPT
-		end
-	end
-	
+  wform do
+    p "Please enter a new password that you can remember easily but is hard for others to guess."
+    passwordfield "old_password", placeholder: "Old Password"
+    passwordfield "new_password", placeholder: "New Password"
+    passwordfield "new_password2", placeholder: "New Password (again)"
+    submit :edit, "Change" do
+      script <<-SCRIPT
+        api_change_password("#{GlobalSettings.new.api_url}", data,
+        function()
+        {
+          location.href = "/user/profile"
+        },
+        function(error)
+        {
+          display_alert("Could not change password", error.error)
+        })
+      SCRIPT
+    end
+  end
+  
 end
 
 authed_single_page "User Profile", "profile" do
-	p "User profile"
+  p "User profile"
 
-	table_from_source "#{GlobalSettings.new.api_url}/self/profile", id:"profile_table" do
-		query do
-			variable "api_key", "get_api_key()"
-		end
-	end
+  table_from_source "#{GlobalSettings.new.api_url}/self/profile", id:"profile_table" do
+    query do
+      variable "api_key", "get_api_key()"
+    end
+  end
 
-	button_link "Change Password", :edit, "/user/changepass"
+  button_link "Change Password", :edit, "/user/changepass"
 end
 
 
 authed_single_page "User Comments", "comments" do
 
-	div class: "authenticated_items" do
-		p "These are some of your latest comments"
+  div class: "authenticated_items" do
+    p "These are some of your latest comments"
 
-		table_from_source "#{GlobalSettings.new.api_url}/comments", id:"comments_table", member: "result" do
-			query do
-				variable "api_key", "get_api_key()"
-			end
-			column "page", title: "Page" do 
-				a "###title###", href:"/###page###"
-				transform <<-SCRIPT
-		return decodeURI(input).replace(/\\|/g, "/");
-				SCRIPT
-			end
-			column "ip", title: "IP Address"
-			column "time", title: "Time Posted", icon: :calendar
-			column "comment", title: "Comment"
-		end
-	end
+    table_from_source "#{GlobalSettings.new.api_url}/comments", id:"comments_table", member: "result" do
+      query do
+        variable "api_key", "get_api_key()"
+      end
+      column "page", title: "Page" do 
+        a "###title###", href:"/###page###"
+        transform <<-SCRIPT
+    return decodeURI(input).replace(/\\|/g, "/");
+        SCRIPT
+      end
+      column "ip", title: "IP Address"
+      column "time", title: "Time Posted", icon: :calendar
+      column "comment", title: "Comment"
+    end
+  end
 end

@@ -25,8 +25,15 @@ body a:active {
 }
 
 .container {
-
     font: 96%/170% Arial,Helvetica,sans-serif;
+}
+
+.post {
+    text-align: left;
+}
+
+.post object {
+    text-align: center;
 }
 
 #blogbg {
@@ -118,9 +125,7 @@ body a:active {
     padding-bottom: 4px;
     font: normal 150%/100% "Lucida Grande",Arial,sans-serif;
     border-bottom: dotted 1px #CCCCCC;
-    -webkit-margin-after: 0.83em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
+    text-align: left;
 }
 
 #blogcontent .postinfo .postdata .pagetitle h2 {
@@ -129,9 +134,7 @@ body a:active {
     padding-bottom: 4px;
     font: normal 150%/100% "Lucida Grande",Arial,sans-serif;
     border-bottom: dotted 1px #CCCCCC;
-    -webkit-margin-after: 0.83em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
+    text-align: left;
 }
 
 #blogcontent .postinfo .date .day {
@@ -146,6 +149,7 @@ body a:active {
     flex: 1 1 auto;
     display: flex; 
     flex-flow: column;
+    text-align: left;
 }
 
 #blogcontent .postinfo .postdata .category {
@@ -180,6 +184,7 @@ body a:active {
     padding-left: 22px;
     font: normal 140%/120% Arial,Helvetica,sans-serif;
     clear: both;
+    text-align: left;
 }
 
 #blogcontent #commentsrespond {

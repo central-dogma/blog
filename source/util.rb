@@ -200,7 +200,7 @@ def post_title(title, post_name, signature, category, time_int)
 		div class:"postdata" do 
 			div class:"title" do
 				a href:"/#{post_name}" do 
-					h2 "#{title}", style: "margin-bottom: 2px"
+					h2 "#{title}"
 				end
 
 				a "#{category}", class:"category", href: "/categories/#{slug(category)}"
@@ -462,7 +462,7 @@ function refresh_comments()
 			textfield "url", placeholder: "Website"
 			textfield "email", placeholder: "E-mail (will not be published)"
 			textfield "comment", "Comment", rows: 5, autocomplete: "off", autocapitalize: "on"
-			submit "Send Comment", style: "info" do
+			submit "Send Comment", style: "info", id:"unauth_commentsubmit" do
 				script <<-SCRIPT
 					send_comment(data)
 				SCRIPT
@@ -478,7 +478,7 @@ function refresh_comments()
 			end
 			br
 			textfield "comment", "Comment", rows: 5, autocomplete: "off", autocapitalize: "on"
-			submit "Send Comment", style: "info" do
+			submit "Send Comment", style: "info", id:"auth_commentsubmit" do
 				script <<-SCRIPT
 					send_comment_authed(data)
 				SCRIPT
@@ -792,7 +792,7 @@ $('#blueimp-gallery').on('slide', function (event, index, slide) {
 					SCRIPT
 
 					div id: "footer" do
-						text "Copyright © 2007-2016 astrobunny.net"
+						text "Copyright © 2007-2018 astrobunny.net"
 					end
 				end
 			end
