@@ -40,4 +40,4 @@ Love the 3rd Eye. Her forehead seems to have enough slots for one.
   
  [![](wp-uploads/2010/05/wpid-CoalGuys-K-ON-S2-08-390F3A9F_6-500x281.jpg "Picture")](/images/wp-uploads/2010/05/wpid-CoalGuys-K-ON-S2-08-390F3A9F_6.jpg)  
   
-... and Azusa is cute as ever 
+... and Azusa is cute as ever \<3

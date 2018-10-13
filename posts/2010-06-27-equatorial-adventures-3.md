@@ -162,7 +162,8 @@ We also met the plum, ume and sentinel011 from [The Bonkurasu Brigade.](http://b
   
  [![](wp-uploads/2010/06/wpid-sml_DSC_04331-500x752.jpg "Picture")](/images/wp-uploads/2010/06/wpid-sml_DSC_04331.jpg)  
   
-Kagami and me   
+Kagami and me \<3  
+  
  [![](wp-uploads/2010/06/wpid-sml_DSC_0469-500x332.jpg "Picture")](/images/wp-uploads/2010/06/wpid-sml_DSC_0469.jpg)  
   
 After the Karaoke, we all headed out to dinner  

@@ -233,7 +233,9 @@ We even had an awesome captain with bird in head.
 
   
 
-And maids!!!!!
+And maids!!!!! \<3
+
+  
 
 [![](wp-uploads/2010/03/wpid-sml_DSC_0889-500x752.jpg "Picture")](/images/wp-uploads/2010/03/wpid-sml_DSC_0889.jpg)
 

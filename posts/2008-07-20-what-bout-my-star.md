@@ -51,7 +51,8 @@ Also, the President is right. It seems that if what they know about where the Va
   
  [![](wp-uploads/2008/07/ranka-500x283.jpg "ranka")](https://www.astrobunny.net/wp-content/uploads/2008/07/ranka.jpg)  
   
-On a smaller scale, Ranka has reached the end of her health examinations. Doctors are pretty lucky aren't they? And I am sure Ranka would be wearing something under that. Not that I know... But I'll leave that to your imagination. Is Ranka really a Vajra queen? She really does not look like it. I mean, look at her!   
+On a smaller scale, Ranka has reached the end of her health examinations. Doctors are pretty lucky aren't they? And I am sure Ranka would be wearing something under that. Not that I know... But I'll leave that to your imagination. Is Ranka really a Vajra queen? She really does not look like it. I mean, look at her! \<3 She looks like the kind that can't tell the difference between a sock and a bunny slipper. Even if appearances can be deceiving, it is precisely appearances that are inherited from those you are related to. Maybe Vajras were once cute and loveable too? Maybe that cute thingy in the previous episodes is a Vajra?  
+  
  [![](wp-uploads/2008/07/tsunderefailure-500x283.jpg "tsunderefailure")](https://www.astrobunny.net/wp-content/uploads/2008/07/tsunderefailure.jpg)  
   
 Alright, lets look at how Sheryl is doing. It seems she's trying her best to be tsundere. But when Ranka's around she just doesn't seem to be able to do it. Sheryl phails as a tsundere. I don't blame her though. Tsundere girls usually get away with their behaviour precisely because boys don't seem to have a choice, and the girl is on top. But this isn't the case, and Sheryl knows it. Ranka is jumping around with Alto too, and Alto cannot make up his mind. I don't blame him either. If I were in that situation, I'd do just what impz would do. impz: I'd bring them both to bed immediately.  

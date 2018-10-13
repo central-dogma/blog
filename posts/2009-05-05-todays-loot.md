@@ -79,7 +79,8 @@ Yoko from Tengen Toppa Gurren Lagann
   
  [![](wp-uploads/2009/05/wpid-100-6312-500x375.jpg "Picture")](/images/wp-uploads/2009/05/wpid-100-6312.jpg)  
   
-Louise (  
+Louise (\<3) from Zero no Tsukaima. Now Kagamine Rin won't feel so lonely in my office anymore.  
+  
  [![](wp-uploads/2009/05/wpid-100-6313-500x666.jpg "Picture")](/images/wp-uploads/2009/05/wpid-100-6313.jpg)  
   
 Ryomou from Ikkitousen. I didn't want to get this at first, but thanks to Haruhi's dreams it ended up in the box. I think she had Mikuru in mind. (maid uniform)  

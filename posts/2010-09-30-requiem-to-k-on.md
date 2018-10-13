@@ -40,7 +40,8 @@ But the great pains of life allow you to reach nirvana and thus gain the ability
   
  [![](wp-uploads/2010/09/wpid-Zero-Raws-K-On-26-END-TBS-1280x720-x264-AAC_5-500x281.jpg "Picture")](/images/wp-uploads/2010/09/wpid-Zero-Raws-K-On-26-END-TBS-1280x720-x264-AAC_5.jpg)  
   
-Teased Azusa face is   
+Teased Azusa face is \<3  
+  
  [![](wp-uploads/2010/09/wpid-Zero-Raws-K-On-26-END-TBS-1280x720-x264-AAC_16-500x281.jpg "Picture")](/images/wp-uploads/2010/09/wpid-Zero-Raws-K-On-26-END-TBS-1280x720-x264-AAC_16.jpg)  
   
 Taken out of context, Yui's face is either very excited or very frightened. Depending on the context of your mood.  

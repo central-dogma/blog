@@ -36,6 +36,7 @@ After our trip to Kasukabe, we continued our trip down to Washinomiya, which sim
 <!--more-->  
  [![](wp-uploads/2009/12/wpid-sml_DSC_0595-500x752.jpg "Picture")](/images/wp-uploads/2009/12/wpid-sml_DSC_0595.jpg)  
   
+\<3 Hiiragi Twins. This portable shrine houses the spirit of the Lucky star characters, which to this day continue to look over and after us.  
   
  [![](wp-uploads/2009/12/wpid-sml_DSC_0602-500x332.jpg "Picture")](/images/wp-uploads/2009/12/wpid-sml_DSC_0602.jpg)  
   

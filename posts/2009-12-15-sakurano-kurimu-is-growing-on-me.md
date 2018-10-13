@@ -44,4 +44,4 @@ If I were a student there I'd listen very carefully to her letter-like announcem
   
  [![](wp-uploads/2009/12/wpid-SS-Eclipse-Seitokai-no-Ichizon-10-1024x576-h264-D72DA926_6-500x281.jpg "Picture")](/images/wp-uploads/2009/12/wpid-SS-Eclipse-Seitokai-no-Ichizon-10-1024x576-h264-D72DA926_6.jpg)  
   
-But Mafuyu's little stunt of not wearing pantsu pushed her points up temporarily today, so she's still my favorite. 
+But Mafuyu's little stunt of not wearing pantsu pushed her points up temporarily today, so she's still my favorite. \<3

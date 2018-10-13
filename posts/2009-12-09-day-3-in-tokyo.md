@@ -182,7 +182,8 @@ There were also shops that sold lots of cosplay costumes.
   
  [![](wp-uploads/2009/12/wpid-sml_DSC_0108-500x332.jpg "Picture")](/images/wp-uploads/2009/12/wpid-sml_DSC_0108.jpg)  
   
-And Takoyaki   
+And Takoyaki \<3  
+  
  [![](wp-uploads/2009/12/wpid-sml_DSC_0110-500x332.jpg "Picture")](/images/wp-uploads/2009/12/wpid-sml_DSC_0110.jpg)  
   
 Next we bought tickets to Mitaka to get to the Ghibli Museum. In case any of you didn't know, Studio Ghibli is the company that produced some really fascinating pieces of animation such as Spirited Away, Howl's Moving Castle, Totoro, Princess Mononoke and Ponyo.  

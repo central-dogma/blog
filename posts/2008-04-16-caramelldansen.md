@@ -13,7 +13,8 @@ Apparently a new phenomenon is rocking the interweb. Some Swedish techno song ha
   
 <!--more-->  
   
-Reisen and Tewi (<object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/5t50kaIJ04I&amp;hl=en">
+Reisen and Tewi (\<3 bunnies)  
+<object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/5t50kaIJ04I&amp;hl=en">
 <param name="wmode" value="transparent">
 <embed src="http://www.youtube.com/v/5t50kaIJ04I&amp;hl=en" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>  
   

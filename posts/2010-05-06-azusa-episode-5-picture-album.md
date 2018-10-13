@@ -18,7 +18,8 @@ category: K-ON
 ---
  [![](wp-uploads/2010/05/wpid-CoalGuys-K-ON-S2-05-4B19B10F_0-500x281.jpg "Picture")](/images/wp-uploads/2010/05/wpid-CoalGuys-K-ON-S2-05-4B19B10F_0.jpg)  
   
-Picture collection of Azusa. <!--more-->  
+Picture collection of Azusa. \<3 Lots of Azusa this episode, so I am a happy person today.  
+<!--more-->  
  [![](wp-uploads/2010/05/wpid-CoalGuys-K-ON-S2-05-4B19B10F_1-500x281.jpg "Picture")](/images/wp-uploads/2010/05/wpid-CoalGuys-K-ON-S2-05-4B19B10F_1.jpg)  
   
  [![](wp-uploads/2010/05/wpid-CoalGuys-K-ON-S2-05-4B19B10F_2-500x281.jpg "Picture")](/images/wp-uploads/2010/05/wpid-CoalGuys-K-ON-S2-05-4B19B10F_2.jpg)  

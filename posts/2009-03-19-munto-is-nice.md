@@ -48,7 +48,8 @@ Yumemi looks so good in this, its good enough to make posters. I know it tickles
   
  [![](wp-uploads/2009/03/wpid-munto2-9-500x283.jpg "Picture")](/images/wp-uploads/2009/03/wpid-munto2-9.jpg)  
   
-Troubled Yumemi needs some love. Look at her. She looks like she just lost her virginity or something and wonders if she could even get married. I blame it on all those Akiba-kei who stare at her viciously with impure eyes. :  
+Troubled Yumemi needs some love. Look at her. She looks like she just lost her virginity or something and wonders if she could even get married. I blame it on all those Akiba-kei who stare at her viciously with impure eyes. :\<  
+  
  [![](wp-uploads/2009/03/wpid-munto2-11-500x283.jpg "Picture")](/images/wp-uploads/2009/03/wpid-munto2-11.jpg)  
   
 And Munto-cchi is here to give lots of love to her. GO MUNTO-CCHI  

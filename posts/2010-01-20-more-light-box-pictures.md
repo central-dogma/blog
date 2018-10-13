@@ -28,7 +28,8 @@ Today I took some pictures on my lightbox with my 70-210mm tele lens to see how 
 <!--more-->  
  [![](wp-uploads/2010/01/wpid-sml_DSC_0071_shopped-500x332.jpg "Picture")](/images/wp-uploads/2010/01/wpid-sml_DSC_0071_shopped.jpg)  
   
-The hiiragi sisters are just pure love   
+The hiiragi sisters are just pure love \<3  
+  
  [![](wp-uploads/2010/01/wpid-sml_DSC_0035_shopped-500x332.jpg "Picture")](/images/wp-uploads/2010/01/wpid-sml_DSC_0035_shopped.jpg)  
   
 Here's a nice little portait photo of Kurimu in all her childish awesomeness.  

@@ -24,6 +24,7 @@ Top heavy, meet DFC.
   
  [![](wp-uploads/2009/03/wpid-index22-3-500x281.jpg "Picture")](/images/wp-uploads/2009/03/wpid-index22-3.jpg)  
   
+\<3 Index. Sorry I can't say too much. The right hand is too busy.  
   
  [![](wp-uploads/2009/03/wpid-index22-4-500x281.jpg "Picture")](/images/wp-uploads/2009/03/wpid-index22-4.jpg)  
   

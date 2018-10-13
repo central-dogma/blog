@@ -18,5 +18,6 @@ Do you see a resemblance with this:
   
  [![](wp-uploads/2009/03/wpid-malaysian-otaku-hunt-aya-hirano-1.jpg "Picture")](/images/wp-uploads/2009/03/wpid-malaysian-otaku-hunt-aya-hirano-1.jpg)  
   
-... And from Sarawak too.   
+... And from Sarawak too. \<3 Home.  
+  
 Thanks to Sankaku
