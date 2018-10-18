@@ -18,7 +18,6 @@ single_page "Login", "login" do
         SCRIPT
       end
 
-
       br
 
       button_link "Not registered?", :cancel, "/user/register"
@@ -93,7 +92,6 @@ single_page "Validate User", "validate" do
       script <<-SCRIPT
 
         data.token = getParameterByName("token");
-        console.log(data);
         
         api_post_validation("localhost:4567", "#{GlobalSettings.new.api_url}", data,
           function(result)
@@ -103,7 +101,6 @@ single_page "Validate User", "validate" do
 
           function(error)
           {
-            console.log(error);
             display_alert("Failed to verify", JSON.stringify(error.error));
           }
         );

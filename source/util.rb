@@ -6,7 +6,7 @@ require 'redcarpet/render_strip'
 class GlobalSettings
 
 	def api_url
-		ENV["ASTROBUNNY_API_URL"] || "http://localhost:5000"
+		ENV["ASTROBUNNY_API_URL"] || "http://192.168.1.15:5000"
 	end
 end
 
@@ -682,7 +682,7 @@ def blog_page(title, path="", options={}, &block)
 			col 3, xs: 0 do
 				div class:"blogsidebar" do
 
-					sidebar_widget "User Panel", min_height: 260 do
+					sidebar_widget "User Panel", min_height: 100 do
 
 						div class: "authenticated_items", id: "userform", style: "display: none" do
 							p id: "userform_welcome" do 

@@ -235,7 +235,6 @@ post_index_page(posts.values,
   tags: tag_counts, 
   post_is_expired_proc: post_is_expired_proc)
 
-
 blog_page(
   "Search", 
   "search",
@@ -249,6 +248,5 @@ blog_page(
   h1 "Search Results"
 
 end
-
 
 File.write(post_modified_dates_cache_file, post_modified_dates.to_json)

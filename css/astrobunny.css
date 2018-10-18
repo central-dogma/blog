@@ -200,6 +200,7 @@ body a:active {
     line-height: 130%;
     list-style-type: none;
     padding: 0;
+    text-align: left;
 }
 
 #blogcontent  .commentlist li {
@@ -348,7 +349,7 @@ li {
 }
 
 .blogsidebar .widget-content ul li {
-    background: url(images/bullet-orange.gif) no-repeat;
+    background: url(/images/theme/bullet-orange.gif) no-repeat;
     padding-left: 18px;
 }
 
