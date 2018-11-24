@@ -1,5 +1,4 @@
 body {
-    background: #7BB6E2 url(/images/theme/bg.jpg) repeat
 }
 
 div {
@@ -36,11 +35,22 @@ body a:active {
     text-align: center;
 }
 
+#blogbgcontainer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
 #blogbg {
 	display: flex; 
 	flex-flow: column; 
 	width:100%; 
 	background: #7BB6E2
+}
+
+#blogbg2 {
+    height: 100%;
+    background: #7BB6E2 url(/images/theme/bg.jpg) repeat    
 }
 
 #blogbgtitle {
@@ -49,7 +59,7 @@ body a:active {
 }
 
 #blogbgimage {
-	position:absolute; 
+	position:relative; 
 	margin-left: auto; 
 	margin-right: auto;
 }
@@ -61,7 +71,7 @@ body a:active {
 }
 
 #blognav {
-    background: #ffffff url(/images/theme/content-top-bg.png) no-repeat left top;
+    background: #ffffff url(/images/theme/content-top-bg.png) no-repeat center top;
     height: 26px;
     margin-top: 9px;
 }

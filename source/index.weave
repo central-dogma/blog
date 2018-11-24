@@ -3,6 +3,8 @@ include "util.rb"
 require "yaml"
 require "uri"
 
+set_global :google_tracking_code, "UA-7604545-1"
+
 FileUtils.mkdir_p "cache"
 post_modified_dates_cache_file = "cache/post_modified_dates"
 

@@ -204,22 +204,25 @@ def post_title(title, post_name, signature, category, time_int)
 				end
 
 				a "#{category}", class:"category", href: "/categories/#{slug(category)}"
-				a "Write a comment", id:"#{slug(post_name)}_comment_count", class:"mini-add-comment", href:"/#{post_name}#comments"
 
-				on_page_load <<-SCRIPT
-					api_get_comment_count("#{GlobalSettings.new.api_url}", #{signature.inspect}, function(count)
-					{
-						if (count == 1)
-						{
-							$("##{slug(post_name)}_comment_count").text(count + " comment");
-						}
-						else if (count != 0)
-						{
-							$("##{slug(post_name)}_comment_count").text(count + " comments");
-						}
-					})
+				if comments_enabled
+					a "Write a comment", id:"#{slug(post_name)}_comment_count", class:"mini-add-comment", href:"/#{post_name}#comments"
 
-				SCRIPT
+					on_page_load <<-SCRIPT
+						api_get_comment_count("#{GlobalSettings.new.api_url}", #{signature.inspect}, function(count)
+						{
+							if (count == 1)
+							{
+								$("##{slug(post_name)}_comment_count").text(count + " comment");
+							}
+							else if (count != 0)
+							{
+								$("##{slug(post_name)}_comment_count").text(count + " comments");
+							}
+						})
+
+					SCRIPT
+				end
 			end
 		end
 	end
@@ -231,7 +234,7 @@ def page_title(title)
 			div class:"pagetitle" do
 				h2 "#{title}", style: "margin-bottom: 2px"
 
-				a "Add Comment", class:"mini-add-comment", href:"#comments"
+				a "Add Comment", class:"mini-add-comment", href:"#comments" if comments_enabled
 			end
 		end
 	end
@@ -321,6 +324,8 @@ end
 
 
 def gen_comment_section(signature, title)
+
+	return unless comments_enabled
 
 	signature = URI.escape(signature, /\W/)
 	on_page_load <<-SCRIPT
@@ -522,16 +527,19 @@ def standard_page(title, path="", options={}, &block)
 		request_js "js/persist-all-min.js"
 
 		background do
-			div id: "blogbg" do
+			div id: "blogbgcontainer" do
+				div id: "blogbg" do
 
-				div id: "blogbgtitle" do
-					image "theme/main-bg.jpg", id: "blogbgimage"
+					div id: "blogbgtitle" do
+						image "theme/main-bg.jpg", id: "blogbgimage"
+					end
+				end
+				div id: "blogbg2" do
 				end
 			end
 		end
 
 		top do
-
 			modal "page_modal" do
 				header do 
 					h4 "MSG_PAGE_MODAL_TITLE", id: "page_modal_title"
@@ -543,7 +551,6 @@ def standard_page(title, path="", options={}, &block)
 			end
 
 			div class: "container" do
-
 				row do
 					col 12 do
 						form id:"searchform", action:"/search" do 
@@ -682,46 +689,52 @@ def blog_page(title, path="", options={}, &block)
 			col 3, xs: 0 do
 				div class:"blogsidebar" do
 
-					sidebar_widget "User Panel", min_height: 100 do
-
-						div class: "authenticated_items", id: "userform", style: "display: none" do
-							p id: "userform_welcome" do 
-								text "Welcome back, "
-								span "__", class: "var_username"
-							end
-							button_link "View Profile", :user, "/user/profile"
-							button_link "View Comments", :comments, "/user/comments"
-							div class: "admin_items" do
-								button_link "Administration Panel", :university, "/admin"
-							end
-							br
-							block_button :"sign-out", "Log out", style: :warning do
-								script <<-SCRIPT
-									logout("#{GlobalSettings.new.api_url}");
-								SCRIPT
-							end
-						end
-
-						div class: "unauthenticated_items", id: "loginform", style: "display: none" do
-							wform do
-								p "Login to edit your comments"
-								textfield "email", placeholder: "E-mail"
-								passwordfield "password", placeholder: "Password"
-
-								submit :"sign-in", "Login", block: true, style: :info do
+					if comments_enabled
+						sidebar_widget "User Panel", min_height: 100 do
+							div class: "authenticated_items", id: "userform", style: "display: none" do
+								p id: "userform_welcome" do 
+									text "Welcome back, "
+									span "__", class: "var_username"
+								end
+								button_link "View Profile", :user, "/user/profile"
+								button_link "View Comments", :comments, "/user/comments"
+								div class: "admin_items" do
+									button_link "Administration Panel", :university, "/admin"
+								end
+								br
+								block_button :"sign-out", "Log out", style: :warning do
 									script <<-SCRIPT
-										login("#{GlobalSettings.new.api_url}", "localhost:4567",  data);
+										logout("#{GlobalSettings.new.api_url}");
 									SCRIPT
 								end
-								button_link " Register", :"user-plus", "/user/register"
-								button_link " Forgot My Password", :"question", "/user/forgotpass"
 							end
+
+							div class: "unauthenticated_items", id: "loginform", style: "display: none" do
+								wform do
+									p "Login to edit your comments"
+									textfield "email", placeholder: "E-mail"
+									passwordfield "password", placeholder: "Password"
+
+									submit :"sign-in", "Login", block: true, style: :info do
+										script <<-SCRIPT
+											login("#{GlobalSettings.new.api_url}", "localhost:4567",  data);
+										SCRIPT
+									end
+									button_link " Register", :"user-plus", "/user/register"
+									button_link " Forgot My Password", :"question", "/user/forgotpass"
+								end
+							end
+
+							on_page_load <<-SCRIPT
+								check_logged_in("#{GlobalSettings.new.api_url}");
+							SCRIPT
+
 						end
-
-						on_page_load <<-SCRIPT
-							check_logged_in("#{GlobalSettings.new.api_url}");
-						SCRIPT
-
+					else
+						sidebar_widget "Welcome to the Blog", min_height: 100 do
+							h4 "hello world"
+							h5 "&lt;world&gt; stop saying hello!"
+						end
 					end
 
 					sidebar_widget "Archives" do
@@ -839,4 +852,6 @@ $('#blueimp-gallery').on('slide', function (event, index, slide) {
 	end
 end
 
-
+def comments_enabled
+	ENV["COMMENTS_ENABLED"] == "true"
+end
