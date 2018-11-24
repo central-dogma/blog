@@ -17,7 +17,7 @@ tags:
 - you
 category: Love Live
 ---
- ![hpt](wp-uploads/2017/04/hpt-e1491139932683-500x667.jpg)  
+ [![0](wp-uploads/2017/04/hpt-e1491139932683-500x667.jpg)](/images/wp-uploads/2017/04/hpt-e1491139932683-500x667.jpg)
   
 On a lazy Sunday afternoon I, a&nbsp;friend and Ruby decided to go on a trip to find the Aqours banners littering JR train stations around Tokyo. We decided to take this trip on the Yamanote Line, a large loop train line that circles most of inner Tokyo and was recently decorated with Aqours banners on its outside. This is Ruby's trip on the Happy Party Yamanote.  
   
@@ -61,4 +61,4 @@ Ruby banner in Nishi-Nippori Station
   
 There wasn't anything extra inside the trains and after the long run we got tired so instead of taking photos of the train itself we went to get food instead.  
   
- [![food](wp-uploads/2017/04/food-e1491140223994-500x667.jpg)](/images/wp-uploads/2017/04/food.jpg)
+ [![10](wp-uploads/2017/04/food-e1491140223994-500x667.jpg)](/images/wp-uploads/2017/04/food.jpg)
