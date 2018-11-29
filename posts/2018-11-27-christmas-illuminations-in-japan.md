@@ -14,7 +14,6 @@ tags:
  [![0](wp-uploads/2018/11/516950967087005696-med.jpg)](/images/wp-uploads/2018/11/516950967087005696-big.jpg)
 
 Christmas illuminations are popping up all over Tokyo now that November is ending. For many places in Tokyo Christmas is a great time to illuminate their cities with fancy lights.
-
 <!--more-->
 
  [![1](wp-uploads/2018/11/516951767901011968-med.jpg)](/images/wp-uploads/2018/11/516951767901011968-big.jpg)
