@@ -354,7 +354,7 @@ blog_page(
       {
         $.ajax({
           dataType: "json",
-          url: 'meta/' + posts[signature],
+          url: '/meta/' + posts[signature],
           success: function(json)
           {
             var blockElem = document.getElementById(elementId);
