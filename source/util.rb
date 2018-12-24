@@ -240,6 +240,11 @@ def page_title(title)
 	end
 end
 
+def renderplain(md_file)
+	markdown = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
+	content = File.read(md_file).split("---", 2)[1]
+	markdown.render(content)
+end
 
 def render(md_file)
 

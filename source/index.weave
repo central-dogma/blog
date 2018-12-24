@@ -77,8 +77,6 @@ Dir["posts/*.md"].sort.reverse.each do |post_file|
 
   post_name = URI.unescape(post_file.sub(/^posts\//, "").sub(/.md$/, "").sub("-","/").sub("-","/").sub("-","/"))
   posts[post_name] = post_file
-
-
 end
 
 
@@ -237,6 +235,35 @@ post_index_page(posts.values,
   tags: tag_counts, 
   post_is_expired_proc: post_is_expired_proc)
 
+
+table = {}
+post_table = {}
+
+posts.each_with_index do |postcontent, i|
+  c = renderplain postcontent[1]
+
+  alpha = /^[a-z]+$/i
+  exclude = ["i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you", "your", "yours", "yourself", "yourselves", "he", "him", "his", "himself", "she", "her", "hers", "herself", "it", "its", "itself", "they", "them", "their", "theirs", "themselves", "what", "which", "who", "whom", "this", "that", "these", "those", "am", "is", "are", "was", "were", "be", "been", "being", "have", "has", "had", "having", "do", "does", "did", "doing", "a", "an", "the", "and", "but", "if", "or", "because", "as", "until", "while", "of", "at", "by", "for", "with", "about", "against", "between", "into", "through", "during", "before", "after", "above", "below", "to", "from", "up", "down", "in", "out", "on", "off", "over", "under", "again", "further", "then", "once", "here", "there", "when", "where", "why", "how", "all", "any", "both", "each", "few", "more", "most", "other", "some", "such", "no", "nor", "not", "only", "own", "same", "so", "than", "too", "very", "s", "t", "can", "will", "just", "don", "should", "now"]
+  words = c.split(' ').select{ |x| alpha.match(x) }.map(&:downcase).uniq
+  words = words - exclude
+  words.each do |x|
+    table[x] = [] if table[x].nil?
+    table[x] << i
+  end
+  post_table[i] = postcontent[0]
+
+  raw_page "meta/#{postcontent[0]}" do
+    elem = Weaver::Elements.new(@page, @anchors)
+    elem.instance_eval do
+      render_post_summary(postcontent[1])
+    end
+  
+    text({
+      xrender: elem.generate
+    }.to_json)
+  end
+end
+
 blog_page(
   "Search", 
   "search",
@@ -248,6 +275,128 @@ blog_page(
   cache_expired: true) do
 
   h1 "Search Results"
+
+  h4 id: :count do
+  end
+
+  hr
+
+  div class: 'page-nav', id: 'page-nav-top' do
+  end
+
+  br
+
+  div id: 'results' do
+  end
+
+  div class: 'page-nav', id: 'page-nav-bottom' do
+  end
+
+  on_page_load <<-SCRIPT
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\\[\\]]/g, '\\\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\\+/g, ' '));
+    }
+
+    String.prototype.replaceAll = function(search, replacement) {
+      var target = this;
+      return target.replace(new RegExp(search, 'g'), replacement);
+    };
+
+    var words = #{table.inspect.gsub('=>', ': ')};
+    var posts = #{post_table.inspect.gsub('=>', ': ')};
+
+    var resultElem = document.getElementById('results');
+    var countElem = document.getElementById('count');
+
+    var navTop = document.getElementById('page-nav-top');
+    var navBottom = document.getElementById('page-nav-bottom');
+
+    var searchText = getParameterByName('searchtext');
+    var page = parseInt(getParameterByName('page')) || 0;
+    var limit = 15;
+    var resultList = words[searchText];
+
+    function add_to_nav(html)
+    {
+      navTop.innerHTML += html;
+      navBottom.innerHTML += html;
+    }
+
+    if (page > 0)
+    {
+      add_to_nav('<span class="previous-entries"><a href="?searchtext='+searchText+"&page="+(page-1)+'">Newer Entries</a></span>')
+    }
+
+    var lastResult = (page+1)*limit - 1;
+    if (lastResult >= resultList.length)
+    {
+      lastResult = (resultList.length - 1);
+    }
+    else
+    {
+      add_to_nav('<span class="next-entries"><a href="?searchtext='+searchText+"&page="+(page+1)+'">Older Entries</a></span>')
+    }
+
+    var requestList = [];
+
+    function Request(signature)
+    {
+      countElem.innerText = "Displaying result " + (page * limit + 1) + ' to result ' + (lastResult+1) + ' out of ' + resultList.length + ' results';
+      var elementId = 'load_' + signature;
+
+      this.run = function(oncomplete)
+      {
+        $.ajax({
+          dataType: "json",
+          url: 'meta/' + posts[signature],
+          success: function(json)
+          {
+            var blockElem = document.getElementById(elementId);
+            blockElem.innerHTML = json.xrender;
+            if (oncomplete)
+            {
+              oncomplete();
+            }
+          }
+        });  
+      }
+      
+      this.div = '<div id="' + elementId + '">' + '</div>';
+
+      return this;
+    }
+
+    function runNextRequest()
+    {
+      if(requestList.length)
+      {
+        var req = requestList.shift();
+        req.run(runNextRequest);
+      }
+    }
+
+    if(resultList)
+    {
+      for(var idx=page * limit; idx < (page + 1) * limit && idx < resultList.length; idx++)
+      {
+        var req = new Request(resultList[idx]);
+        requestList.push(req);
+        resultElem.innerHTML += req.div;
+      }
+      runNextRequest();
+    }
+    else
+    {
+      resultElem.innerText = "Not sure if real search: " + searchText;
+    }
+
+  SCRIPT
 
 end
 
