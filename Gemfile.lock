@@ -36,6 +36,3 @@ PLATFORMS
 DEPENDENCIES
   redcarpet
   weaver (~> 0.8)
-
-BUNDLED WITH
-   1.17.1
